@@ -374,7 +374,7 @@ h2[id]{scroll-margin-top:92px}
   .facts{grid-template-columns:1fr 1fr 1fr}
   .facts > div{padding:12px 12px 10px} .facts > div:first-child{padding-left:0}
   .facts > div.hl{grid-column:1/4; margin:8px 0 10px; padding:16px 18px 14px}
-  .facts em{font-size:20px} .facts .hl em{font-size:26px} .facts dt{font-size:10.5px} .facts dd{font-size:13px}
+  .facts em{font-size:18px} .facts .hl em{font-size:26px} .facts dt{font-size:10.5px} .facts dd{font-size:13px}
 }
 @media(max-width:700px){
   .answer{padding:20px 16px 18px; border-radius:16px}
