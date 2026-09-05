@@ -113,7 +113,8 @@
   f.addEventListener('submit',function(e){
     var local=document.getElementById('q');
     var v=(f.querySelector('input')||{}).value||'';
-    if(local){ e.preventDefault(); local.value=v; local.dispatchEvent(new Event('input')); local.scrollIntoView({block:'start'}); return; }
+    if(local){ e.preventDefault(); local.value=v; local.dispatchEvent(new Event('input'));
+      var rec=document.getElementById('records'); (rec||local).scrollIntoView({block:'start'}); return; }
     e.preventDefault(); location.href=f.getAttribute('data-home')+'?q='+encodeURIComponent(v);
   });
 })();

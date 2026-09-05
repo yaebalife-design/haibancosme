@@ -59,7 +59,7 @@
       <input type="search" id="q" placeholder="例：モダンマット、リップティント、資生堂" aria-label="商品名・ブランド名で探す" autocomplete="off">
       <button type="button" id="q-go">探す</button>
     </form>
-      <div class="herostats" aria-label="この図鑑の規模">
+      <div class="herostats" role="group" aria-label="この図鑑の規模">
         <div><em>39</em><span>記録した商品</span></div>
         <div><em>14</em><span>ブランド</span></div>
         <div><em>256</em><span>参照した公式ページ</span></div>
@@ -68,17 +68,17 @@
   </section>
 
   <div class="filters" id="filters">
-    <div class="grp" aria-label="カテゴリ"><span class="lbl">カテゴリ</span><a class="fchip" href="index.html" aria-current="page">すべて<i>39</i></a><a class="fchip" href="category/lip.html">リップ<i>12</i></a><a class="fchip" href="category/eye.html">アイ・眉<i>10</i></a><a class="fchip" href="category/base.html">ファンデ・ベース<i>10</i></a><a class="fchip" href="category/skincare.html">スキンケア<i>7</i></a></div>
-    <div class="grp" role="group" aria-label="状態で絞り込む"><span class="lbl">状態</span><button type="button" class="fchip on" data-st="">すべて<i>39</i></button><button type="button" class="fchip" data-st="ended" title="メーカーが終了を公表している">生産終了<i>19</i></button><button type="button" class="fchip" data-st="partial" title="色番単位で終了し、シリーズ自体は続いている">一部の色が終了<i>9</i></button><button type="button" class="fchip" data-st="delisted" title="告知はないが公式サイトの一覧から掲載が消えた">公式から消えた<i>10</i></button><button type="button" class="fchip" data-st="withdrawn" title="ブランドごと販売を終えた">ブランド撤退<i>1</i></button></div>
+    <div class="grp" role="group" aria-label="カテゴリ"><span class="lbl">カテゴリ</span><a class="fchip" href="index.html" aria-current="page">すべて<i>39</i></a><a class="fchip" href="category/lip.html">リップ<i>12</i></a><a class="fchip" href="category/eye.html">アイ・眉<i>10</i></a><a class="fchip" href="category/base.html">ファンデ・ベース<i>10</i></a><a class="fchip" href="category/skincare.html">スキンケア<i>7</i></a></div>
+    <div class="grp" role="group" aria-label="状態で絞り込む"><span class="lbl">状態</span><button type="button" class="fchip on" data-st="" aria-pressed="true">すべて<i>39</i></button><button type="button" class="fchip" data-st="ended" aria-pressed="false" title="メーカーが終了を公表している">生産終了<i>19</i></button><button type="button" class="fchip" data-st="partial" aria-pressed="false" title="色番単位で終了し、シリーズ自体は続いている">一部の色が終了<i>9</i></button><button type="button" class="fchip" data-st="delisted" aria-pressed="false" title="告知はないが公式サイトの一覧から掲載が消えた">公式から消えた<i>10</i></button><button type="button" class="fchip" data-st="withdrawn" aria-pressed="false" title="ブランドごと販売を終えた">ブランド撤退<i>1</i></button></div>
   </div>
   <div class="list-head">
     <h2 id="records">記録<small id="hit-count" aria-live="polite">39件</small></h2>
     <div class="sortsw" role="group" aria-label="並び順">
-      <button type="button" class="on" data-sort="upd">新着順</button><button type="button" data-sort="end">終了が新しい順</button>
+      <button type="button" class="on" data-sort="upd" aria-pressed="true">新着順</button><button type="button" data-sort="end" aria-pressed="false">終了が新しい順</button>
     </div>
   </div>
   <div class="reclist" id="reclist">
-    <a class="rec" href="articles/shiseido-modernmatte-powder-lipstick.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ モダンマット パウダーリップスティック SHISEIDO モダンマット パウダーリップスティック 全31色 色番 SHISEIDO テクノサテン ジェル リップスティック SHISEIDO カラージェル リップバーム SHISEIDO ラッカーインク リップシャイン" data-status="ended" data-cat="lip" data-end="202412" data-upd="2026-09-05" aria-label="SHISEIDO モダンマット パウダーリップスティック（生産終了）">
+    <a class="rec" href="articles/shiseido-modernmatte-powder-lipstick.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ モダンマット パウダーリップスティック SHISEIDO モダンマット パウダーリップスティック 全31色 色番 SHISEIDO テクノサテン ジェル リップスティック SHISEIDO カラージェル リップバーム SHISEIDO ラッカーインク リップシャイン" data-status="ended" data-cat="lip" data-end="202412" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">モダンマット パウダーリップスティック</span>
@@ -87,7 +87,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO テクノサテン ジェル リップスティック<em>4,400円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-innerglow-cheek-powder.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ インナーグロウ チークパウダー SHISEIDO インナーグロウ チークパウダー 全8色 チーク SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル)" data-status="ended" data-cat="base" data-end="202412" data-upd="2026-09-05" aria-label="SHISEIDO インナーグロウ チークパウダー（生産終了）">
+    <a class="rec" href="articles/shiseido-innerglow-cheek-powder.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ インナーグロウ チークパウダー SHISEIDO インナーグロウ チークパウダー 全8色 チーク SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル)" data-status="ended" data-cat="base" data-end="202412" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">インナーグロウ チークパウダー</span>
@@ -96,7 +96,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO カラー+グロウ エンハンサー<em>6,270円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-pop-powdergel-eyeshadow.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ポップ パウダージェル アイシャドウ SHISEIDO ポップ パウダージェル アイシャドウ 全16色 色番 SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル) SUQQU モノ ルック アイズ e" data-status="ended" data-cat="eye" data-end="202603" data-upd="2026-09-05" aria-label="SHISEIDO ポップ パウダージェル アイシャドウ（生産終了）">
+    <a class="rec" href="articles/shiseido-pop-powdergel-eyeshadow.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ポップ パウダージェル アイシャドウ SHISEIDO ポップ パウダージェル アイシャドウ 全16色 色番 SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル) SUQQU モノ ルック アイズ e" data-status="ended" data-cat="eye" data-end="202603" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">ポップ パウダージェル アイシャドウ</span>
@@ -105,7 +105,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO カラー+グロウ エンハンサー<em>6,270円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-synchro-skin-invisible-silk-powder.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シンクロスキン インビジブル シルク(パウダー3品) SHISEIDO シンクロスキン インビジブル シルク プレストパウダー ルースパウダー SHISEIDO エッセンス スキンセッティング パウダー SHISEIDO ベネフィアンス ブライトニング スキンケアパウダー SHISEIDO フューチャーソリューション LX トータル ラディアンス ルースパウダーe" data-status="ended" data-cat="base" data-end="202512" data-upd="2026-09-05" aria-label="SHISEIDO シンクロスキン インビジブル シルク（パウダー3品）（生産終了）">
+    <a class="rec" href="articles/shiseido-synchro-skin-invisible-silk-powder.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シンクロスキン インビジブル シルク(パウダー3品) SHISEIDO シンクロスキン インビジブル シルク プレストパウダー ルースパウダー SHISEIDO エッセンス スキンセッティング パウダー SHISEIDO ベネフィアンス ブライトニング スキンケアパウダー SHISEIDO フューチャーソリューション LX トータル ラディアンス ルースパウダーe" data-status="ended" data-cat="base" data-end="202512" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">シンクロスキン インビジブル シルク（パウダー3品）</span>
@@ -114,7 +114,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>エッセンス スキン セッティング パウダー<em>5,500円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-white-lucent.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ホワイトルーセント(ライン全品) SHISEIDO ホワイトルーセント マイクロS セラム オーバーナイトクリーム デーエマルジョン SHISEIDO ベネフィアンス ブライトニング マイクロS セラム SHISEIDO ベネフィアンス ブライトニング ジェル クリーム SHISEIDO ベネフィアンス ブライトニング スキンケアパウダー" data-status="ended" data-cat="skincare" data-end="202503" data-upd="2026-09-05" aria-label="SHISEIDO ホワイトルーセント（ライン全品）（生産終了）">
+    <a class="rec" href="articles/shiseido-white-lucent.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ホワイトルーセント(ライン全品) SHISEIDO ホワイトルーセント マイクロS セラム オーバーナイトクリーム デーエマルジョン SHISEIDO ベネフィアンス ブライトニング マイクロS セラム SHISEIDO ベネフィアンス ブライトニング ジェル クリーム SHISEIDO ベネフィアンス ブライトニング スキンケアパウダー" data-status="ended" data-cat="skincare" data-end="202503" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">ホワイトルーセント（ライン全品）</span>
@@ -123,7 +123,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO ベネフィアンス ブライトニング マイクロS セラム<em>14,850円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-vital-perfection-ul-firming-eye-cream.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ バイタルパーフェクション UL ファーミング アイクリーム SHISEIDO バイタルパーフェクション UL ファーミング アイクリーム 目もと SHISEIDO ベネフィアンス リンクル スムージング アイクリーム N SHISEIDO バイタルパーフェクション UL ファーミング エクスプレス アイマスク" data-status="ended" data-cat="skincare" data-end="202509" data-upd="2026-09-05" aria-label="SHISEIDO バイタルパーフェクション ＵＬ ファーミング アイクリーム（生産終了）">
+    <a class="rec" href="articles/shiseido-vital-perfection-ul-firming-eye-cream.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ バイタルパーフェクション UL ファーミング アイクリーム SHISEIDO バイタルパーフェクション UL ファーミング アイクリーム 目もと SHISEIDO ベネフィアンス リンクル スムージング アイクリーム N SHISEIDO バイタルパーフェクション UL ファーミング エクスプレス アイマスク" data-status="ended" data-cat="skincare" data-end="202509" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">バイタルパーフェクション ＵＬ ファーミング アイクリーム</span>
@@ -132,7 +132,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO ベネフィアンス リンクル スムージング アイクリーム Ｎ<em>7,150円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-benefiance-wrinkle-smoothing-cream.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ベネフィアンス リンクル スムージングクリーム SHISEIDO ベネフィアンス リンクル スムージングクリーム エンリッチド 違い SHISEIDO ベネフィアンス リンクル スムージングクリーム エンリッチド SHISEIDO ベネフィアンス ブライトニング ジェル クリーム SHISEIDO ベネフィアンス リンクル スムージングデーエマルジョン" data-status="ended" data-cat="skincare" data-end="202512" data-upd="2026-09-05" aria-label="SHISEIDO ベネフィアンス リンクル スムージングクリーム（生産終了）">
+    <a class="rec" href="articles/shiseido-benefiance-wrinkle-smoothing-cream.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ベネフィアンス リンクル スムージングクリーム SHISEIDO ベネフィアンス リンクル スムージングクリーム エンリッチド 違い SHISEIDO ベネフィアンス リンクル スムージングクリーム エンリッチド SHISEIDO ベネフィアンス ブライトニング ジェル クリーム SHISEIDO ベネフィアンス リンクル スムージングデーエマルジョン" data-status="ended" data-cat="skincare" data-end="202512" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">ベネフィアンス リンクル スムージングクリーム</span>
@@ -141,7 +141,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>リンクル スムージング クリーム エンリッチド<em>10,450円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-ultimune-powerizing-eye-concentrate.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ アルティミューン パワライジング アイ コンセントレート III SHISEIDO アルティミューン パワライジング アイ コンセントレート 目もと SHISEIDO ベネフィアンス リンクル スムージング アイクリーム N SHISEIDO アルティミューン パワライジング セラム" data-status="ended" data-cat="skincare" data-end="202512" data-upd="2026-09-05" aria-label="SHISEIDO アルティミューン パワライジング アイ コンセントレート Ⅲ（生産終了）">
+    <a class="rec" href="articles/shiseido-ultimune-powerizing-eye-concentrate.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ アルティミューン パワライジング アイ コンセントレート III SHISEIDO アルティミューン パワライジング アイ コンセントレート 目もと SHISEIDO ベネフィアンス リンクル スムージング アイクリーム N SHISEIDO アルティミューン パワライジング セラム" data-status="ended" data-cat="skincare" data-end="202512" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">アルティミューン パワライジング アイ コンセントレート Ⅲ</span>
@@ -150,7 +150,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO ベネフィアンス リンクル スムージング アイクリーム Ｎ<em>7,150円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-shimmer-gelgloss.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シマージェルグロス(10色中7色) SHISEIDO シマージェルグロス クリスタルジェルグロス 色番 グロス SHISEIDO ラッカーインク リップシャイン SHISEIDO カラージェル リップバーム SHISEIDO テクノサテン ジェル リップスティック" data-status="partial" data-cat="lip" data-end="202512" data-upd="2026-09-05" aria-label="SHISEIDO シマージェルグロス（10色中7色）（一部の色が終了）">
+    <a class="rec" href="articles/shiseido-shimmer-gelgloss.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シマージェルグロス(10色中7色) SHISEIDO シマージェルグロス クリスタルジェルグロス 色番 グロス SHISEIDO ラッカーインク リップシャイン SHISEIDO カラージェル リップバーム SHISEIDO テクノサテン ジェル リップスティック" data-status="partial" data-cat="lip" data-end="202512" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">シマージェルグロス（10色中7色）</span>
@@ -159,7 +159,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO ラッカーインク リップシャイン<em>3,850円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-creamy-cleansing-emulsion.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ クリーミー クレンジングエマルジョン 資生堂 クリーミー クレンジングエマルジョン クレンジング 乳液 SHISEIDO エクストラリッチ クレンジングミルク 資生堂 ジェントル クレンジングクリーム 資生堂 パーフェクトオイル クレンジング" data-status="ended" data-cat="skincare" data-end="202506" data-upd="2026-09-05" aria-label="SHISEIDO クリーミー クレンジングエマルジョン（生産終了）">
+    <a class="rec" href="articles/shiseido-creamy-cleansing-emulsion.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ クリーミー クレンジングエマルジョン 資生堂 クリーミー クレンジングエマルジョン クレンジング 乳液 SHISEIDO エクストラリッチ クレンジングミルク 資生堂 ジェントル クレンジングクリーム 資生堂 パーフェクトオイル クレンジング" data-status="ended" data-cat="skincare" data-end="202506" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">クリーミー クレンジングエマルジョン</span>
@@ -168,7 +168,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO エクストラリッチ クレンジングミルク<em>4,400円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/cledepeau-rouge-a-levres.html" data-kw="クレ・ド・ポー ボーテ Clé de Peau Beauté クレ・ド・ポー ボーテ クレドポー くれどぽー CPB ルージュアレーブル(終売した9色) クレ・ド・ポー ボーテ ルージュアレーブル マット 色番 口紅 クレ・ド・ポー ボーテ ルージュアレーブル(現行の色) クレ・ド・ポー ボーテ ルージュアレーブル ブリアン クレ・ド・ポー ボーテ ル・ルージュプレシュー" data-status="partial" data-cat="lip" data-end="202509" data-upd="2026-09-05" aria-label="クレ・ド・ポー ボーテ ルージュアレーブル（終売した9色）（一部の色が終了）">
+    <a class="rec" href="articles/cledepeau-rouge-a-levres.html" data-kw="クレ・ド・ポー ボーテ Clé de Peau Beauté クレ・ド・ポー ボーテ クレドポー くれどぽー CPB ルージュアレーブル(終売した9色) クレ・ド・ポー ボーテ ルージュアレーブル マット 色番 口紅 クレ・ド・ポー ボーテ ルージュアレーブル(現行の色) クレ・ド・ポー ボーテ ルージュアレーブル ブリアン クレ・ド・ポー ボーテ ル・ルージュプレシュー" data-status="partial" data-cat="lip" data-end="202509" data-upd="2026-09-05">
       <span class="rec-brand">Clé de Peau Beauté</span>
       <span class="rec-main">
         <span class="rec-name">ルージュアレーブル（終売した9色）</span>
@@ -177,7 +177,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>クレ・ド・ポー ボーテ ルージュアレーブル<em>7,150円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-brow-mascara-ink.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ブロウ マスカラインク SHISEIDO ブロウ マスカラインク 眉マスカラ 全3色 SHISEIDO ブロウインクトリオ SUQQU スムース アイブロウ ペンシル SUQQU 3D コントロール アイブロウ" data-status="ended" data-cat="eye" data-end="202512" data-upd="2026-09-05" aria-label="SHISEIDO ブロウ マスカラインク（生産終了）">
+    <a class="rec" href="articles/shiseido-brow-mascara-ink.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ブロウ マスカラインク SHISEIDO ブロウ マスカラインク 眉マスカラ 全3色 SHISEIDO ブロウインクトリオ SUQQU スムース アイブロウ ペンシル SUQQU 3D コントロール アイブロウ" data-status="ended" data-cat="eye" data-end="202512" data-upd="2026-09-05">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">ブロウ マスカラインク</span>
@@ -186,16 +186,16 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>ブロウ インクトリオ<em>3,300円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/laura-mercier-pure-canvas-primer.html" data-kw="ローラ メルシエ LAURA MERCIER ローラメルシエ ろーらめるしえ ピュア キャンバス プライマー ローラメルシエ ピュアキャンバスプライマー ブラーリング 撤退 下地 プライマー NARS ソフトマットプライマー コスメデコルテ AQ ラスティング UV プライマー コスメデコルテ ザ スキン ミニマリスト" data-status="withdrawn" data-cat="base" data-end="202510" data-upd="2026-09-03" aria-label="ローラ メルシエ ピュア キャンバス プライマー（ブランド撤退）">
+    <a class="rec" href="articles/laura-mercier-pure-canvas-primer.html" data-kw="ローラ メルシエ LAURA MERCIER ローラメルシエ ろーらめるしえ ピュア キャンバス プライマー ローラメルシエ ピュアキャンバスプライマー ブラーリング 撤退 下地 プライマー NARS ソフトマットプライマー コスメデコルテ AQ ラスティング UV プライマー コスメデコルテ ザ スキン ミニマリスト" data-status="withdrawn" data-cat="base" data-end="202510" data-upd="2026-09-03">
       <span class="rec-brand">LAURA MERCIER</span>
       <span class="rec-main">
         <span class="rec-name">ピュア キャンバス プライマー</span>
-        <span class="rec-sub"><span class="chip st-withdrawn">ブランド撤退</span><span class="num">2025.10 日本撤退</span><span>公式：公式ページ削除</span></span>
+        <span class="rec-sub"><span class="chip st-withdrawn">ブランド撤退</span><span class="num">2025.10 日本撤退</span><span>公式：日本公式サイト閉鎖（米国サイトへ転送）</span></span>
       </span>
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>ソフトマット プライマー<em>5,830円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/rmk-glow-stick.html" data-kw="RMK RMK アールエムケー るみこ グロースティック RMK グロースティック GD ハイライター スティック NARS ライトリフレクティング ルミナイジングスティック RMK グロウ イルミネーター(同ブランド現行) セザンヌ パールグロウハイライト" data-status="ended" data-cat="base" data-end="202603" data-upd="2026-09-03" aria-label="RMK グロースティック（生産終了）">
+    <a class="rec" href="articles/rmk-glow-stick.html" data-kw="RMK RMK アールエムケー るみこ グロースティック RMK グロースティック GD ハイライター スティック NARS ライトリフレクティング ルミナイジングスティック RMK グロウ イルミネーター(同ブランド現行) セザンヌ パールグロウハイライト" data-status="ended" data-cat="base" data-end="202603" data-upd="2026-09-03">
       <span class="rec-brand">RMK</span>
       <span class="rec-main">
         <span class="rec-name">グロースティック</span>
@@ -204,7 +204,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>NARS ライトリフレクティング ルミナイジングスティック<em>6,160円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/decorte-face-powder-10-11-80.html" data-kw="コスメデコルテ DECORTÉ コスメデコルテ でこるて コーセー フェイスパウダー 10・11・80 コスメデコルテ フェイスパウダー 10 11 80 ルースパウダー misty beige luminary ivory glow pink コスメデコルテ ルース パウダー(現行) コスメデコルテ トランスルーセント セッティングパウダー(現行) コスメデコルテ AQ フェイスパウダー(現行) 10 misty beige 11 luminary ivory 80 glow pink" data-status="partial" data-cat="base" data-end="0" data-upd="2026-09-03" aria-label="コスメデコルテ フェイスパウダー 10・11・80（一部の色が終了）">
+    <a class="rec" href="articles/decorte-face-powder-10-11-80.html" data-kw="コスメデコルテ DECORTÉ コスメデコルテ でこるて コーセー フェイスパウダー 10・11・80 コスメデコルテ フェイスパウダー 10 11 80 ルースパウダー misty beige luminary ivory glow pink コスメデコルテ ルース パウダー(現行) コスメデコルテ トランスルーセント セッティングパウダー(現行) コスメデコルテ AQ フェイスパウダー(現行) 10 misty beige 11 luminary ivory 80 glow pink" data-status="partial" data-cat="base" data-end="0" data-upd="2026-09-03">
       <span class="rec-brand">DECORTÉ</span>
       <span class="rec-main">
         <span class="rec-name">フェイスパウダー 10・11・80</span>
@@ -213,7 +213,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>コスメデコルテ ルース パウダー<em>6,270円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/lunasol-eye-coloration.html" data-kw="ルナソル LUNASOL ルナソル るなそる カネボウ アイカラーレーション ルナソル アイカラーレーション 15 22 Flawless Clarity Smoky Quartz アイカラーレーションN ルナソル アイカラーレーション N(同ブランド現行) ルナソル スキンモデリングアイズ(同ブランド現行) ルナソル ジェミネイトアイズ N(同ブランド現行) 15 Flawless Clarity 22(色名は下記参照)" data-status="partial" data-cat="eye" data-end="202509" data-upd="2026-09-03" aria-label="ルナソル アイカラーレーション（一部の色が終了）">
+    <a class="rec" href="articles/lunasol-eye-coloration.html" data-kw="ルナソル LUNASOL ルナソル るなそる カネボウ アイカラーレーション ルナソル アイカラーレーション 15 22 Flawless Clarity Smoky Quartz アイカラーレーションN ルナソル アイカラーレーション N(同ブランド現行) ルナソル スキンモデリングアイズ(同ブランド現行) ルナソル ジェミネイトアイズ N(同ブランド現行) 15 Flawless Clarity 22(色名は下記参照)" data-status="partial" data-cat="eye" data-end="202509" data-upd="2026-09-03">
       <span class="rec-brand">LUNASOL</span>
       <span class="rec-main">
         <span class="rec-name">アイカラーレーション</span>
@@ -222,7 +222,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>ルナソル アイカラーレーション N<em>7,700円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/nars-audacious-lipstick.html" data-kw="NARS NARS ナーズ なーず 資生堂 オーデイシャスリップスティック NARS オーデイシャスリップスティック リップ 4950円 エクスプリシット NARS エクスプリシット リップスティック(現行) NARS エクスプリシット リップスティック(レフィル) NARS アフターグロー センシュアルシャイン リップスティック(現行) 9460 ローズ 9458 レッドカラント 9459 ダスティモーヴ 9464 ピンクベージュ 9478 ボルドー" data-status="delisted" data-cat="lip" data-end="202501" data-upd="2026-09-03" aria-label="NARS オーデイシャスリップスティック（公式から消えた）">
+    <a class="rec" href="articles/nars-audacious-lipstick.html" data-kw="NARS NARS ナーズ なーず 資生堂 オーデイシャスリップスティック NARS オーデイシャスリップスティック リップ 4950円 エクスプリシット NARS エクスプリシット リップスティック(現行) NARS エクスプリシット リップスティック(レフィル) NARS アフターグロー センシュアルシャイン リップスティック(現行) 9460 ローズ 9458 レッドカラント 9459 ダスティモーヴ 9464 ピンクベージュ 9478 ボルドー" data-status="delisted" data-cat="lip" data-end="202501" data-upd="2026-09-03">
       <span class="rec-brand">NARS</span>
       <span class="rec-main">
         <span class="rec-name">オーデイシャスリップスティック</span>
@@ -231,7 +231,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>NARS エクスプリシット リップスティック<em>5,500円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shuuemura-blanc-chroma-cleansing-oil.html" data-kw="シュウ ウエムラ shu uemura シュウウエムラ しゅううえむら 植村秀 ブランクロマ ライト&amp;ポリッシュ クレンジング オイル シュウウエムラ ブランクロマ クレンジングオイル 150ml 450ml シュウ ウエムラ ブライト クレンジング オイル(現行) シュウ ウエムラ ブラック クレンジング オイル(現行) シュウ ウエムラ ボタニック クレンジング オイル(現行)" data-status="delisted" data-cat="skincare" data-end="202601" data-upd="2026-09-03" aria-label="シュウ ウエムラ ブランクロマ ライト&amp;ポリッシュ クレンジング オイル（公式から消えた）">
+    <a class="rec" href="articles/shuuemura-blanc-chroma-cleansing-oil.html" data-kw="シュウ ウエムラ shu uemura シュウウエムラ しゅううえむら 植村秀 ブランクロマ ライト&amp;ポリッシュ クレンジング オイル シュウウエムラ ブランクロマ クレンジングオイル 150ml 450ml シュウ ウエムラ ブライト クレンジング オイル(現行) シュウ ウエムラ ブラック クレンジング オイル(現行) シュウ ウエムラ ボタニック クレンジング オイル(現行)" data-status="delisted" data-cat="skincare" data-end="202601" data-upd="2026-09-03">
       <span class="rec-brand">shu uemura</span>
       <span class="rec-main">
         <span class="rec-name">ブランクロマ ライト&amp;ポリッシュ クレンジング オイル</span>
@@ -240,7 +240,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>シュウ ウエムラ ブライト クレンジング オイル<em>5,720円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/celvoke-voluntary-eyes.html" data-kw="セルヴォーク Celvoke セルヴォーク せるぼーく ヴォランタリー アイズ セルヴォーク ヴォランタリーアイズ 単色アイシャドウ 全30色 ヴァティックアイズ セルヴォーク インフィニトリー カラー N(現行) セルヴォーク ヴァティック アイパレット(現行) 06 チョコレートブラウン 08 マットベージュ 11 シャンパンゴールド 14 オーキッドパープル 18 フォレストグリーン" data-status="delisted" data-cat="eye" data-end="0" data-upd="2026-09-03" aria-label="セルヴォーク ヴォランタリー アイズ（公式から消えた）">
+    <a class="rec" href="articles/celvoke-voluntary-eyes.html" data-kw="セルヴォーク Celvoke セルヴォーク せるぼーく ヴォランタリー アイズ セルヴォーク ヴォランタリーアイズ 単色アイシャドウ 全30色 ヴァティックアイズ セルヴォーク インフィニトリー カラー N(現行) セルヴォーク ヴァティック アイパレット(現行) 06 チョコレートブラウン 08 マットベージュ 11 シャンパンゴールド 14 オーキッドパープル 18 フォレストグリーン" data-status="delisted" data-cat="eye" data-end="0" data-upd="2026-09-03">
       <span class="rec-brand">Celvoke</span>
       <span class="rec-main">
         <span class="rec-name">ヴォランタリー アイズ</span>
@@ -249,7 +249,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>セルヴォーク インフィニトリー カラー N<em>3,520円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/celvoke-enthrall-gloss.html" data-kw="セルヴォーク Celvoke セルヴォーク せるぼーく エンスロール グロス セルヴォーク エンスロールグロス リップグロス 全12色 セルヴォーク ルージュ オー ミューテッドグロウ(現行) セルヴォーク ディグニファイド リップス(現行) セルヴォーク モイステン リップドロップ(現行) 01 アッシズオブローズ 03 テラコッタ 06 オールドライラック 08 カプティックレッド EX04 スカーレット" data-status="ended" data-cat="lip" data-end="0" data-upd="2026-09-03" aria-label="セルヴォーク エンスロール グロス（生産終了）">
+    <a class="rec" href="articles/celvoke-enthrall-gloss.html" data-kw="セルヴォーク Celvoke セルヴォーク せるぼーく エンスロール グロス セルヴォーク エンスロールグロス リップグロス 全12色 セルヴォーク ルージュ オー ミューテッドグロウ(現行) セルヴォーク ディグニファイド リップス(現行) セルヴォーク モイステン リップドロップ(現行) 01 アッシズオブローズ 03 テラコッタ 06 オールドライラック 08 カプティックレッド EX04 スカーレット" data-status="ended" data-cat="lip" data-end="0" data-upd="2026-09-03">
       <span class="rec-brand">Celvoke</span>
       <span class="rec-main">
         <span class="rec-name">エンスロール グロス</span>
@@ -258,7 +258,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>セルヴォーク ルージュ オー ミューテッドグロウ<em>4,620円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/maquillage-dramatic-forming-glow-base.html" data-kw="マキアージュ MAQuillAGE マキアージュ まきあーじゅ 資生堂 ドラマティックフォルミンググロウベース シアーカラー マキアージュ ドラマティックフォルミンググロウベース シアーカラー 下地 マキアージュ エッセンスベース EX マキアージュ ドラマティック ヌードジェリー BB マキアージュ ドラマティック カバージェリー BB" data-status="ended" data-cat="base" data-end="202509" data-upd="2026-09-03" aria-label="マキアージュ ドラマティックフォルミンググロウベース シアーカラー（生産終了）">
+    <a class="rec" href="articles/maquillage-dramatic-forming-glow-base.html" data-kw="マキアージュ MAQuillAGE マキアージュ まきあーじゅ 資生堂 ドラマティックフォルミンググロウベース シアーカラー マキアージュ ドラマティックフォルミンググロウベース シアーカラー 下地 マキアージュ エッセンスベース EX マキアージュ ドラマティック ヌードジェリー BB マキアージュ ドラマティック カバージェリー BB" data-status="ended" data-cat="base" data-end="202509" data-upd="2026-09-03">
       <span class="rec-brand">MAQuillAGE</span>
       <span class="rec-main">
         <span class="rec-name">ドラマティックフォルミンググロウベース シアーカラー</span>
@@ -267,7 +267,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>マキアージュ エッセンスベース EX<em>3,300円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/suqqu-retouch-pressed-powder.html" data-kw="SUQQU SUQQU スック すっく リタッチ プレスト パウダー SUQQU スック リタッチ プレスト パウダー フェイスパウダー SUQQU ソフト マット セッティング パウダー SUQQU グロウ セッティング パウダー SUQQU シアー ルース パウダー e" data-status="delisted" data-cat="base" data-end="202500" data-upd="2026-09-03" aria-label="SUQQU リタッチ プレスト パウダー（公式から消えた）">
+    <a class="rec" href="articles/suqqu-retouch-pressed-powder.html" data-kw="SUQQU SUQQU スック すっく リタッチ プレスト パウダー SUQQU スック リタッチ プレスト パウダー フェイスパウダー SUQQU ソフト マット セッティング パウダー SUQQU グロウ セッティング パウダー SUQQU シアー ルース パウダー e" data-status="delisted" data-cat="base" data-end="202513" data-upd="2026-09-03">
       <span class="rec-brand">SUQQU</span>
       <span class="rec-main">
         <span class="rec-name">リタッチ プレスト パウダー</span>
@@ -276,7 +276,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SUQQU ソフト マット セッティング パウダー<em>8,800円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/suqqu-tone-touch-eyes.html" data-kw="SUQQU SUQQU スック すっく トーン タッチ アイズ SUQQU スック トーン タッチ アイズ 単色アイシャドウ 染芥子 SUQQU モノ ルック アイズ e SUQQU モノ ルック アイズ SUQQU シグニチャー カラー アイズ" data-status="delisted" data-cat="eye" data-end="202500" data-upd="2026-09-03" aria-label="SUQQU トーン タッチ アイズ（公式から消えた）">
+    <a class="rec" href="articles/suqqu-tone-touch-eyes.html" data-kw="SUQQU SUQQU スック すっく トーン タッチ アイズ SUQQU スック トーン タッチ アイズ 単色アイシャドウ 染芥子 SUQQU モノ ルック アイズ e SUQQU モノ ルック アイズ SUQQU シグニチャー カラー アイズ" data-status="delisted" data-cat="eye" data-end="202513" data-upd="2026-09-03">
       <span class="rec-brand">SUQQU</span>
       <span class="rec-main">
         <span class="rec-name">トーン タッチ アイズ</span>
@@ -285,7 +285,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SUQQU モノ ルック アイズ ｅ<em>4,290円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/suqqu-sheer-matte-lipstick.html" data-kw="SUQQU SUQQU スック すっく シアー マット リップスティック SUQQU スック シアー マット リップスティック 春雷 濃胡桃 SUQQU ベルベット フィット リップスティック SUQQU モイスチャー グレイズ リップスティック SUQQU ベルベット フィット リップスティック(レフィルのみ)" data-status="delisted" data-cat="lip" data-end="202511" data-upd="2026-09-03" aria-label="SUQQU シアー マット リップスティック（公式から消えた）">
+    <a class="rec" href="articles/suqqu-sheer-matte-lipstick.html" data-kw="SUQQU SUQQU スック すっく シアー マット リップスティック SUQQU スック シアー マット リップスティック 春雷 濃胡桃 SUQQU ベルベット フィット リップスティック SUQQU モイスチャー グレイズ リップスティック SUQQU ベルベット フィット リップスティック(レフィルのみ)" data-status="delisted" data-cat="lip" data-end="202511" data-upd="2026-09-03">
       <span class="rec-brand">SUQQU</span>
       <span class="rec-main">
         <span class="rec-name">シアー マット リップスティック</span>
@@ -294,7 +294,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SUQQU ベルベット フィット リップスティック<em>6,050円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-gentle-force.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ジェントルフォース(シリーズ4品) SHISEIDO ジェントルフォース 化粧水 乳液 洗顔 アレルシールド ミスト SHISEIDO バイタルパーフェクション ブライトリバイタル エマルジョン SHISEIDO ベネフィアンス リンクル スムージングデーエマルジョン SHISEIDO バイタルパーフェクション UL ファーミング デーエマルジョン" data-status="ended" data-cat="skincare" data-end="202503" data-upd="2026-09-03" aria-label="SHISEIDO ジェントルフォース（シリーズ4品）（生産終了）">
+    <a class="rec" href="articles/shiseido-gentle-force.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ジェントルフォース(シリーズ4品) SHISEIDO ジェントルフォース 化粧水 乳液 洗顔 アレルシールド ミスト SHISEIDO バイタルパーフェクション ブライトリバイタル エマルジョン SHISEIDO ベネフィアンス リンクル スムージングデーエマルジョン SHISEIDO バイタルパーフェクション UL ファーミング デーエマルジョン" data-status="ended" data-cat="skincare" data-end="202503" data-upd="2026-09-03">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">ジェントルフォース（シリーズ4品）</span>
@@ -303,7 +303,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO バイタルパーフェクション ブライトリバイタル エマルジョン<em>12,100円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-synchro-skin-white-cushion-compact.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シンクロスキン ホワイト クッションコンパクト WT SHISEIDO シンクロスキン ホワイト クッションコンパクト WT 全4色 レフィル ケース SHISEIDO シンクロスキン グロー クッションコンパクト(レフィル) SHISEIDO シンクロスキン セルフリフレッシング クッションコンパクト(レフィル) SHISEIDO シンクロスキン セルフリフレッシング ファンデーション" data-status="ended" data-cat="base" data-end="202506" data-upd="2026-09-03" aria-label="SHISEIDO シンクロスキン ホワイト クッションコンパクト WT（生産終了）">
+    <a class="rec" href="articles/shiseido-synchro-skin-white-cushion-compact.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ シンクロスキン ホワイト クッションコンパクト WT SHISEIDO シンクロスキン ホワイト クッションコンパクト WT 全4色 レフィル ケース SHISEIDO シンクロスキン グロー クッションコンパクト(レフィル) SHISEIDO シンクロスキン セルフリフレッシング クッションコンパクト(レフィル) SHISEIDO シンクロスキン セルフリフレッシング ファンデーション" data-status="ended" data-cat="base" data-end="202506" data-upd="2026-09-03">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">シンクロスキン ホワイト クッションコンパクト WT</span>
@@ -312,7 +312,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>グロー クッション コンパクト<em>4,950円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-kajal-inkartist.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ カジャルインクアーティスト SHISEIDO カジャルインクアーティスト 全10色 アイシャドウ アイライナー アイブロウ SHISEIDO マイクロライナーインク SHISEIDO アーチライナーインク SHISEIDO カラー+グロウ エンハンサー" data-status="ended" data-cat="eye" data-end="202412" data-upd="2026-09-03" aria-label="SHISEIDO カジャルインクアーティスト（生産終了）">
+    <a class="rec" href="articles/shiseido-kajal-inkartist.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ カジャルインクアーティスト SHISEIDO カジャルインクアーティスト 全10色 アイシャドウ アイライナー アイブロウ SHISEIDO マイクロライナーインク SHISEIDO アーチライナーインク SHISEIDO カラー+グロウ エンハンサー" data-status="ended" data-cat="eye" data-end="202412" data-upd="2026-09-03">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">カジャルインクアーティスト</span>
@@ -321,7 +321,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>マイクロライナー インク<em>3,850円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-future-solution-lx-total-r-cushion.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ フューチャーソリューション LX トータル R クッションe SHISEIDO フューチャーソリューション LX トータル R クッション レフィル ケース SHISEIDO フューチャーソリューション LX トータル ラディアンス ファンデーションe SHISEIDO フューチャーソリューション LX トータル ラディアンス ルースパウダーe SHISEIDO フューチャーソリューション LX インフィニトリートメント プライマー" data-status="ended" data-cat="base" data-end="202412" data-upd="2026-09-03" aria-label="SHISEIDO フューチャーソリューション LX トータル Ｒ クッションｅ（生産終了）">
+    <a class="rec" href="articles/shiseido-future-solution-lx-total-r-cushion.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ フューチャーソリューション LX トータル R クッションe SHISEIDO フューチャーソリューション LX トータル R クッション レフィル ケース SHISEIDO フューチャーソリューション LX トータル ラディアンス ファンデーションe SHISEIDO フューチャーソリューション LX トータル ラディアンス ルースパウダーe SHISEIDO フューチャーソリューション LX インフィニトリートメント プライマー" data-status="ended" data-cat="base" data-end="202412" data-upd="2026-09-03">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">フューチャーソリューション LX トータル Ｒ クッションｅ</span>
@@ -330,7 +330,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO フューチャーソリューション LX トータル ラディアンス ファンデーションｅ<em>13,200円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/shiseido-aura-dew-prism-illuminator.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ オーラデュウ プリズム イルミネーター SHISEIDO オーラデュウ プリズム イルミネーター Ursa Meteor ハイライト SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル) SHISEIDO オーラデュウ プリズム イルミネーター ピコ" data-status="ended" data-cat="base" data-end="202603" data-upd="2026-09-03" aria-label="SHISEIDO オーラデュウ プリズム イルミネーター（生産終了）">
+    <a class="rec" href="articles/shiseido-aura-dew-prism-illuminator.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ オーラデュウ プリズム イルミネーター SHISEIDO オーラデュウ プリズム イルミネーター Ursa Meteor ハイライト SHISEIDO カラー+グロウ エンハンサー SHISEIDO カラー+グロウ エンハンサー(レフィル) SHISEIDO オーラデュウ プリズム イルミネーター ピコ" data-status="ended" data-cat="base" data-end="202603" data-upd="2026-09-03">
       <span class="rec-brand">SHISEIDO</span>
       <span class="rec-main">
         <span class="rec-name">オーラデュウ プリズム イルミネーター</span>
@@ -339,7 +339,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>SHISEIDO カラー+グロウ エンハンサー<em>6,270円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/opera-lip-tint-n-discontinued-colors.html" data-kw="オペラ OPERA オペラ おぺら イミュ リップティント N(廃盤色番の記録) オペラ リップティント 色番 バーガンディ アプリコット 同シリーズの現行色(リップティント N 全10色) オペラ グロウリップティント(イミュ・現行) オペラ シアーマットリップスティック(イミュ・現行) 12 プラムピンク 13 トープ 14 メロウピンク 17 ピーチグロウ 18 アンバーオレンジ 19 モーヴピンク" data-status="partial" data-cat="lip" data-end="202300" data-upd="2026-09-02" aria-label="オペラ リップティント N（廃盤色番の記録）（一部の色が終了）">
+    <a class="rec" href="articles/opera-lip-tint-n-discontinued-colors.html" data-kw="オペラ OPERA オペラ おぺら イミュ リップティント N(廃盤色番の記録) オペラ リップティント 色番 バーガンディ アプリコット 同シリーズの現行色(リップティント N 全10色) オペラ グロウリップティント(イミュ・現行) オペラ シアーマットリップスティック(イミュ・現行) 12 プラムピンク 13 トープ 14 メロウピンク 17 ピーチグロウ 18 アンバーオレンジ 19 モーヴピンク" data-status="partial" data-cat="lip" data-end="202313" data-upd="2026-09-02">
       <span class="rec-brand">OPERA</span>
       <span class="rec-main">
         <span class="rec-name">リップティント N（廃盤色番の記録）</span>
@@ -348,7 +348,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>リップティント N<em>1,760円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/rimmel-marshmallow-look-lipstick.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー マシュマロルック リップスティック マシュマロルック 030 015 025 リップモンスター エテュセ リップエディション(ティントルージュ)R レアマットタイプ オペラ シアーマットリップスティック(イミュ) 015 メルティレッド 025 レディッシュブラウン 030 メルティブラウン 029 ディープボルドー 032 ブラウンレッド" data-status="delisted" data-cat="lip" data-end="202304" data-upd="2026-09-02" aria-label="リンメル マシュマロルック リップスティック（公式から消えた）">
+    <a class="rec" href="articles/rimmel-marshmallow-look-lipstick.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー マシュマロルック リップスティック マシュマロルック 030 015 025 リップモンスター エテュセ リップエディション(ティントルージュ)R レアマットタイプ オペラ シアーマットリップスティック(イミュ) 015 メルティレッド 025 レディッシュブラウン 030 メルティブラウン 029 ディープボルドー 032 ブラウンレッド" data-status="delisted" data-cat="lip" data-end="202304" data-upd="2026-09-02">
       <span class="rec-brand">RIMMEL</span>
       <span class="rec-main">
         <span class="rec-name">マシュマロルック リップスティック</span>
@@ -357,7 +357,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>リップエディション R レアマットタイプ<em>1,650円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/rimmel-chocolat-sweet-eyes.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ショコラスウィート アイズ ショコラスウィート アイズ 015 019 スキニーリッチシャドウ エクセル スキニーリッチシャドウ(常盤薬品工業) キャンメイク パーフェクトマルチアイズ(井田ラボラトリーズ) 002 アーモンドミルクショコラ 015 ストロベリーショコラ 019 ブルーベリーショコラ" data-status="delisted" data-cat="eye" data-end="202305" data-upd="2026-09-02" aria-label="リンメル ショコラスウィート アイズ（公式から消えた）">
+    <a class="rec" href="articles/rimmel-chocolat-sweet-eyes.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ショコラスウィート アイズ ショコラスウィート アイズ 015 019 スキニーリッチシャドウ エクセル スキニーリッチシャドウ(常盤薬品工業) キャンメイク パーフェクトマルチアイズ(井田ラボラトリーズ) 002 アーモンドミルクショコラ 015 ストロベリーショコラ 019 ブルーベリーショコラ" data-status="delisted" data-cat="eye" data-end="202305" data-upd="2026-09-02">
       <span class="rec-brand">RIMMEL</span>
       <span class="rec-main">
         <span class="rec-name">ショコラスウィート アイズ</span>
@@ -366,7 +366,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>エクセル スキニーリッチシャドウ<em>1,650円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/opera-sheer-matte-lipstick-discontinued-colors.html" data-kw="オペラ OPERA オペラ おぺら イミュ シアーマットリップスティック(終売色番の記録) オペラ シアーマット フィグ モーヴピンク ブリックレッド キャメル 同シリーズの現行色(シアーマットリップスティック 全5色) オペラ グロウリップティント(イミュ・現行) オペラ リップティント N(イミュ・現行) 01 ブリックレッド 02 モーヴピンク 03 キャメル 05 フィグ 08 モーヴピンク N" data-status="partial" data-cat="lip" data-end="202503" data-upd="2026-09-02" aria-label="オペラ シアーマットリップスティック（終売色番の記録）（一部の色が終了）">
+    <a class="rec" href="articles/opera-sheer-matte-lipstick-discontinued-colors.html" data-kw="オペラ OPERA オペラ おぺら イミュ シアーマットリップスティック(終売色番の記録) オペラ シアーマット フィグ モーヴピンク ブリックレッド キャメル 同シリーズの現行色(シアーマットリップスティック 全5色) オペラ グロウリップティント(イミュ・現行) オペラ リップティント N(イミュ・現行) 01 ブリックレッド 02 モーヴピンク 03 キャメル 05 フィグ 08 モーヴピンク N" data-status="partial" data-cat="lip" data-end="202503" data-upd="2026-09-02">
       <span class="rec-brand">OPERA</span>
       <span class="rec-main">
         <span class="rec-name">シアーマットリップスティック（終売色番の記録）</span>
@@ -375,7 +375,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>シアーマット<em>1,980円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/opera-eye-color-pencil.html" data-kw="オペラ OPERA オペラ おぺら イミュ アイカラーペンシル オペラ アイカラーペンシル グレイッシュモーヴ グレーベージュ クリーミータッチライナー キャンメイク クリーミータッチライナー(井田ラボラトリーズ) デジャヴュ ラスティンファイン クリームペンシル KATE レアフィットジェルペンシルN(カネボウ) 01 ブラウンレッド 10 グレイッシュモーヴ 13 グレーベージュ 14 ブロンズ" data-status="ended" data-cat="eye" data-end="202500" data-upd="2026-09-02" aria-label="オペラ アイカラーペンシル（生産終了）">
+    <a class="rec" href="articles/opera-eye-color-pencil.html" data-kw="オペラ OPERA オペラ おぺら イミュ アイカラーペンシル オペラ アイカラーペンシル グレイッシュモーヴ グレーベージュ クリーミータッチライナー キャンメイク クリーミータッチライナー(井田ラボラトリーズ) デジャヴュ ラスティンファイン クリームペンシル KATE レアフィットジェルペンシルN(カネボウ) 01 ブラウンレッド 10 グレイッシュモーヴ 13 グレーベージュ 14 ブロンズ" data-status="ended" data-cat="eye" data-end="202513" data-upd="2026-09-02">
       <span class="rec-brand">OPERA</span>
       <span class="rec-main">
         <span class="rec-name">アイカラーペンシル</span>
@@ -384,7 +384,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>クリーミータッチ ライナー<em>715円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/opera-glow-lip-tint-301-warm-beige.html" data-kw="オペラ OPERA オペラ おぺら イミュ グロウリップティント 301 ウォームベージュ オペラ グロウリップティント 301 ウォームベージュ アプリコットベージュ 同シリーズの現行色(グロウリップティント 定番11色+限定3色) オペラ リップティント N(イミュ・現行) 301 ウォームベージュ" data-status="partial" data-cat="lip" data-end="202605" data-upd="2026-09-02" aria-label="オペラ グロウリップティント 301 ウォームベージュ（一部の色が終了）">
+    <a class="rec" href="articles/opera-glow-lip-tint-301-warm-beige.html" data-kw="オペラ OPERA オペラ おぺら イミュ グロウリップティント 301 ウォームベージュ オペラ グロウリップティント 301 ウォームベージュ アプリコットベージュ 同シリーズの現行色(グロウリップティント 定番11色+限定3色) オペラ リップティント N(イミュ・現行) 301 ウォームベージュ" data-status="partial" data-cat="lip" data-end="202605" data-upd="2026-09-02">
       <span class="rec-brand">OPERA</span>
       <span class="rec-main">
         <span class="rec-name">グロウリップティント 301 ウォームベージュ</span>
@@ -393,7 +393,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>グロウリップティント<em>1,980円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/rimmel-marshmallow-airy-lipstick.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ラスティング フィニッシュ マシュマロエアリー リップスティック マシュマロエアリー リップスティック 掲載終了 マット シアーマット レアマット オペラ シアーマットリップスティック(イミュ) エテュセ リップエディション(ティントルージュ)R レアマットタイプ 003 リンメルレッド 006 ソフトピンクベージュ 010 モーヴパープル" data-status="delisted" data-cat="lip" data-end="202510" data-upd="2026-09-02" aria-label="リンメル ラスティング フィニッシュ マシュマロエアリー リップスティック（公式から消えた）">
+    <a class="rec" href="articles/rimmel-marshmallow-airy-lipstick.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ラスティング フィニッシュ マシュマロエアリー リップスティック マシュマロエアリー リップスティック 掲載終了 マット シアーマット レアマット オペラ シアーマットリップスティック(イミュ) エテュセ リップエディション(ティントルージュ)R レアマットタイプ 003 リンメルレッド 006 ソフトピンクベージュ 010 モーヴパープル" data-status="delisted" data-cat="lip" data-end="202510" data-upd="2026-09-02">
       <span class="rec-brand">RIMMEL</span>
       <span class="rec-main">
         <span class="rec-name">ラスティング フィニッシュ マシュマロエアリー リップスティック</span>
@@ -402,7 +402,7 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>シアーマット リップスティック<em>1,980円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/rimmel-royal-vintage-eyes.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ロイヤルヴィンテージ アイズ ロイヤルヴィンテージ アイズ 掲載終了 4色 リアルクローズシャドウ エクセル リアルクローズシャドウ(常盤薬品工業) ヴィセ グロッシーリッチ アイズ N(コーセー) 001 ロイヤルヴィンテージベージュ 004 オールドバーガンディ 013 アーバンナイトネイビー" data-status="delisted" data-cat="eye" data-end="202304" data-upd="2026-09-02" aria-label="リンメル ロイヤルヴィンテージ アイズ（公式から消えた）">
+    <a class="rec" href="articles/rimmel-royal-vintage-eyes.html" data-kw="リンメル RIMMEL リンメル りんめる コーセー ロイヤルヴィンテージ アイズ ロイヤルヴィンテージ アイズ 掲載終了 4色 リアルクローズシャドウ エクセル リアルクローズシャドウ(常盤薬品工業) ヴィセ グロッシーリッチ アイズ N(コーセー) 001 ロイヤルヴィンテージベージュ 004 オールドバーガンディ 013 アーバンナイトネイビー" data-status="delisted" data-cat="eye" data-end="202304" data-upd="2026-09-02">
       <span class="rec-brand">RIMMEL</span>
       <span class="rec-main">
         <span class="rec-name">ロイヤルヴィンテージ アイズ</span>
@@ -411,16 +411,16 @@
       <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>リアルクローズ シャドウ<em>1,650円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/cezanne-tone-up-eyeshadow-10-11.html" data-kw="セザンヌ CEZANNE セザンヌ せざんぬ トーンアップアイシャドウ 10・11 トーンアップアイシャドウ ベリーブラウン トープブラウン 販売縮小 同シリーズの現行色(01 ナチュラルブラウン/08 ハニーブラウン) エクセル スキニーリッチシャドウ N(常盤薬品工業) キャンメイク シルキースフレアイズ(井田ラボラトリーズ) 10 ベリーブラウン 11 トープブラウン" data-status="partial" data-cat="eye" data-end="202600" data-upd="2026-09-02" aria-label="セザンヌ トーンアップアイシャドウ 10・11（一部の色が終了）">
+    <a class="rec" href="articles/cezanne-tone-up-eyeshadow-10-11.html" data-kw="セザンヌ CEZANNE セザンヌ せざんぬ トーンアップアイシャドウ 10・11 トーンアップアイシャドウ ベリーブラウン トープブラウン 販売縮小 同シリーズの現行色(01 ナチュラルブラウン/08 ハニーブラウン) エクセル スキニーリッチシャドウ N(常盤薬品工業) キャンメイク シルキースフレアイズ(井田ラボラトリーズ) 10 ベリーブラウン 11 トープブラウン" data-status="partial" data-cat="eye" data-end="202610" data-upd="2026-09-02">
       <span class="rec-brand">CEZANNE</span>
       <span class="rec-main">
         <span class="rec-name">トーンアップアイシャドウ 10・11</span>
         <span class="rec-sub"><span class="chip st-partial">一部の色が終了</span><span class="num">2026秋 廃番</span><span>公式：10・11は公式に掲載なし</span></span>
       </span>
-      <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>トーンアップ アイシャドウ 01・08</span>
+      <span class="rec-alt"><small>代わりの筆頭（当サイト選定）</small>スキニーリッチ シャドウ N<em>1,650円</em></span>
       <span class="rec-go" aria-hidden="true">→</span>
     </a>
-    <a class="rec" href="articles/cezanne-lasting-lip-color-n-407-505.html" data-kw="セザンヌ CEZANNE セザンヌ せざんぬ ラスティング リップカラーN 407・505 ラスティングリップカラーN 407 505 レッド系 オレンジ系 同シリーズの現行色(402 レッド系/501・504 オレンジ系) キャンメイク ステイオンバームルージュ(井田ラボラトリーズ) オペラ リップティント N(イミュ) 407 レッド系 505 オレンジ系" data-status="partial" data-cat="lip" data-end="202600" data-upd="2026-09-02" aria-label="セザンヌ ラスティング リップカラーN 407・505（一部の色が終了）">
+    <a class="rec" href="articles/cezanne-lasting-lip-color-n-407-505.html" data-kw="セザンヌ CEZANNE セザンヌ せざんぬ ラスティング リップカラーN 407・505 ラスティングリップカラーN 407 505 レッド系 オレンジ系 同シリーズの現行色(402 レッド系/501・504 オレンジ系) キャンメイク ステイオンバームルージュ(井田ラボラトリーズ) オペラ リップティント N(イミュ) 407 レッド系 505 オレンジ系" data-status="partial" data-cat="lip" data-end="202610" data-upd="2026-09-02">
       <span class="rec-brand">CEZANNE</span>
       <span class="rec-main">
         <span class="rec-name">ラスティング リップカラーN 407・505</span>
@@ -434,12 +434,12 @@
 
   <h2 id="recent">最近終了した記録</h2>
   <div class="recent">
-    <a href="articles/opera-glow-lip-tint-301-warm-beige.html"><time>2026.05</time><span class="n">グロウリップティント 301 ウォームベージュ</span><span class="b">OPERA</span></a>
-    <a href="articles/shiseido-pop-powdergel-eyeshadow.html"><time>2026.03</time><span class="n">ポップ パウダージェル アイシャドウ</span><span class="b">SHISEIDO</span></a>
-    <a href="articles/rmk-glow-stick.html"><time>2026.03</time><span class="n">グロースティック</span><span class="b">RMK</span></a>
-    <a href="articles/shiseido-aura-dew-prism-illuminator.html"><time>2026.03</time><span class="n">オーラデュウ プリズム イルミネーター</span><span class="b">SHISEIDO</span></a>
-    <a href="articles/shuuemura-blanc-chroma-cleansing-oil.html"><time>2026.01</time><span class="n">ブランクロマ ライト&amp;ポリッシュ クレンジング オイル</span><span class="b">shu uemura</span></a>
-    <a href="articles/cezanne-tone-up-eyeshadow-10-11.html"><time>2026</time><span class="n">トーンアップアイシャドウ 10・11</span><span class="b">CEZANNE</span></a>
+    <a href="articles/cezanne-tone-up-eyeshadow-10-11.html"><time datetime="2026-10">2026.10</time><span class="n">トーンアップアイシャドウ 10・11</span><span class="b">CEZANNE</span></a>
+    <a href="articles/cezanne-lasting-lip-color-n-407-505.html"><time datetime="2026-10">2026.10</time><span class="n">ラスティング リップカラーN 407・505</span><span class="b">CEZANNE</span></a>
+    <a href="articles/opera-glow-lip-tint-301-warm-beige.html"><time datetime="2026-05">2026.05</time><span class="n">グロウリップティント 301 ウォームベージュ</span><span class="b">OPERA</span></a>
+    <a href="articles/shiseido-pop-powdergel-eyeshadow.html"><time datetime="2026-03">2026.03</time><span class="n">ポップ パウダージェル アイシャドウ</span><span class="b">SHISEIDO</span></a>
+    <a href="articles/rmk-glow-stick.html"><time datetime="2026-03">2026.03</time><span class="n">グロースティック</span><span class="b">RMK</span></a>
+    <a href="articles/shiseido-aura-dew-prism-illuminator.html"><time datetime="2026-03">2026.03</time><span class="n">オーラデュウ プリズム イルミネーター</span><span class="b">SHISEIDO</span></a>
   </div>
 
   <h2 id="brands">ブランドから探す<small>14 ブランド</small></h2>
@@ -447,8 +447,8 @@
     <a href="brand/shiseido.html"><span class="bn">SHISEIDO</span><span class="br">SHISEIDO</span><span class="bc"><em>16</em> 件　最新の終了 2026.03</span></a>
     <a href="brand/opera.html"><span class="bn">オペラ</span><span class="br">OPERA</span><span class="bc"><em>4</em> 件　最新の終了 2026.05</span></a>
     <a href="brand/rimmel.html"><span class="bn">リンメル</span><span class="br">RIMMEL</span><span class="bc"><em>4</em> 件　最新の終了 2025.10</span></a>
-    <a href="brand/suqqu.html"><span class="bn">SUQQU</span><span class="br">SUQQU</span><span class="bc"><em>3</em> 件　最新の終了 2025.11</span></a>
-    <a href="brand/cezanne.html"><span class="bn">セザンヌ</span><span class="br">CEZANNE</span><span class="bc"><em>2</em> 件　最新の終了 2026</span></a>
+    <a href="brand/suqqu.html"><span class="bn">SUQQU</span><span class="br">SUQQU</span><span class="bc"><em>3</em> 件　最新の終了 2025</span></a>
+    <a href="brand/cezanne.html"><span class="bn">セザンヌ</span><span class="br">CEZANNE</span><span class="bc"><em>2</em> 件　最新の終了 2026.10</span></a>
     <a href="brand/celvoke.html"><span class="bn">セルヴォーク</span><span class="br">Celvoke</span><span class="bc"><em>2</em> 件</span></a>
     <a href="brand/nars.html"><span class="bn">NARS</span><span class="br">NARS</span><span class="bc"><em>1</em> 件　最新の終了 2025.01</span></a>
     <a href="brand/rmk.html"><span class="bn">RMK</span><span class="br">RMK</span><span class="bc"><em>1</em> 件　最新の終了 2026.03</span></a>
@@ -473,7 +473,10 @@
   }
   var list = document.getElementById('reclist'); if(!list) return;
   var rows = Array.prototype.slice.call(list.querySelectorAll('.rec'));
-  rows.forEach(function(r){ r._hay = norm(r.textContent + ' ' + (r.getAttribute('data-kw')||'')); });
+  rows.forEach(function(r){
+    var t = ['.rec-brand','.rec-name','.rec-alt'].map(function(s){ var e=r.querySelector(s); return e ? e.textContent : ''; }).join(' ');
+    r._hay = norm(t + ' ' + (r.getAttribute('data-kw')||''));
+  });
   var box = document.getElementById('q'), none = document.getElementById('no-hit'), count = document.getElementById('hit-count');
   var st = '', sortKey = 'upd';
   function apply(){
@@ -494,14 +497,14 @@
   }
   document.querySelectorAll('.filters [data-st]').forEach(function(b){
     b.addEventListener('click', function(){
-      document.querySelectorAll('.filters [data-st]').forEach(function(x){ x.classList.remove('on'); });
-      b.classList.add('on'); st = b.getAttribute('data-st'); apply();
+      document.querySelectorAll('.filters [data-st]').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+      b.classList.add('on'); b.setAttribute('aria-pressed','true'); st = b.getAttribute('data-st'); apply();
     });
   });
   document.querySelectorAll('.sortsw [data-sort]').forEach(function(b){
     b.addEventListener('click', function(){
-      document.querySelectorAll('.sortsw [data-sort]').forEach(function(x){ x.classList.remove('on'); });
-      b.classList.add('on'); sortKey = b.getAttribute('data-sort'); sort();
+      document.querySelectorAll('.sortsw [data-sort]').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+      b.classList.add('on'); b.setAttribute('aria-pressed','true'); sortKey = b.getAttribute('data-sort'); sort();
     });
   });
   if(box){
@@ -509,7 +512,7 @@
     box.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); apply(); } });
     var go = document.getElementById('q-go'); if(go) go.addEventListener('click', apply);
     var m = location.search.match(/[?&]q=([^&]*)/);
-    if(m && m[1]){ box.value = decodeURIComponent(m[1].replace(/\+/g,' ')); apply();
+    if(m && m[1]){ try{ box.value = decodeURIComponent(m[1].replace(/\+/g,' ')); }catch(e){ box.value = m[1]; } apply();
       var el = document.getElementById('records'); if(el) el.scrollIntoView({block:'start'}); }
   }
 })();
@@ -542,7 +545,8 @@
   f.addEventListener('submit',function(e){
     var local=document.getElementById('q');
     var v=(f.querySelector('input')||{}).value||'';
-    if(local){ e.preventDefault(); local.value=v; local.dispatchEvent(new Event('input')); local.scrollIntoView({block:'start'}); return; }
+    if(local){ e.preventDefault(); local.value=v; local.dispatchEvent(new Event('input'));
+      var rec=document.getElementById('records'); (rec||local).scrollIntoView({block:'start'}); return; }
     e.preventDefault(); location.href=f.getAttribute('data-home')+'?q='+encodeURIComponent(v);
   });
 })();
