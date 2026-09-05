@@ -278,6 +278,40 @@ h2[id]{scroll-margin-top:92px}
 @media(max-width:940px){ .brandgrid{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:560px){ .brandgrid{grid-template-columns:repeat(2,1fr); gap:10px} .brandgrid a{padding:16px 14px 12px; min-height:110px} .brandgrid .br{font-size:20px} .brandgrid .bc{font-size:11.5px} .brandgrid .bc .lbl{display:none} }
 
+/* ── ブランドの壁（トップ上部のコンパクト版） ── */
+.sec-head.top-first{margin-top:48px}
+.brandgrid.compact{grid-template-columns:repeat(7,1fr); gap:10px}
+.brandgrid.compact a{min-height:0; padding:14px 14px 12px; border-radius:12px}
+.brandgrid.compact .br{font-size:19px}
+.brandgrid.compact .bn{font-size:11.5px; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.brandgrid.compact .bc{padding-top:10px; margin-top:10px; font-size:11.5px}
+.brandgrid.compact .bc em{font-size:14px}
+@media(max-width:1100px){ .brandgrid.compact{grid-template-columns:repeat(5,1fr)} }
+@media(max-width:940px){ .brandgrid.compact{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:700px){
+  .brandgrid.compact{display:flex; overflow-x:auto; gap:8px; margin:0 -18px; padding:2px 18px 8px; scrollbar-width:none; -webkit-overflow-scrolling:touch}
+  .brandgrid.compact::-webkit-scrollbar{display:none}
+  .brandgrid.compact a{flex:0 0 148px; padding:12px 12px 10px}
+  .sec-head.top-first{margin-top:36px}
+}
+
+/* ── カテゴリの入口タイル ── */
+.cats{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px}
+.catcard{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:var(--r); overflow:hidden;
+  text-decoration:none; color:var(--ink); min-width:0; transition:transform .25s ease, box-shadow .25s ease}
+.catcard:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+.catcard .cv{display:block; height:76px; position:relative; background:linear-gradient(135deg,var(--g1),var(--g2))}
+.catcard .cv .en{position:absolute; left:16px; bottom:10px; font-family:var(--latin); font-style:italic; font-size:24px; line-height:1; color:var(--cat-fg,rgba(255,255,255,.9)); letter-spacing:.01em}
+.catcard .cb{display:flex; flex-direction:column; flex:1; padding:14px 16px 16px}
+.catcard b{font-family:var(--serif); font-weight:600; font-size:17px}
+.catcard .n{font:600 13px var(--num); color:var(--ink-3); margin-left:8px}
+.catcard ul{list-style:none; margin:10px 0 0; padding:0; font-size:12.5px; color:var(--ink-2); line-height:1.75}
+.catcard li{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-left:12px; position:relative}
+.catcard li::before{content:""; position:absolute; left:0; top:.85em; width:5px; height:1px; background:var(--gold)}
+.catcard .go{margin-top:auto; padding-top:12px; font-size:12.5px; font-weight:500; color:var(--accent)}
+@media(max-width:940px){ .cats{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:480px){ .cats{grid-template-columns:1fr; gap:12px} .catcard .cv{height:60px} }
+
 /* ── 読みもの ── */
 .guide-row{display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:22px 26px; text-decoration:none; color:var(--ink); transition:transform .25s, box-shadow .25s}
 .guide-row:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
