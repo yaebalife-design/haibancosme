@@ -1,378 +1,387 @@
-/* ══ 廃盤コスメ図鑑 ══
-   社長承認済みv2モック（2026-09-02）のCSSトークンを外部化したもの。
-   単一テーマ（白基調・コミット）。全色を明示的に塗る。 */
+/* ══ 廃盤コスメ図鑑 ══ 2026-09-05 リデザイン。白＋墨＋ガーネット1色。装飾は1要素1つ。 */
 :root{
-  --paper:#FAF7F2;          /* 暮しの手帖系クリーム紙 */
-  --card:#FFFFFF;
-  --ink:#3A3335;            /* 真っ黒にしない */
-  --ink-soft:#7C7275;
-  --line:#E5DCD8;
-  --rose:#8E4F62;           /* 主色：スモーキーローズ（大手ピンク帯を回避） */
-  --azuki:#7A3B4E;          /* 第2色（少量）：確認日・バッジ */
-  --th-bg:#F3EAE7;
-  --zebra:#F9F5F3;
-  --amber-ink:#7A5A17; --amber-wash:#FAF3E2;   /* 意味色：注意 */
-  --amz:#A9742E; --rkt:#B4433E;                /* 彩度を落としたストア派生色（白文字でAA 4.5:1以上） */
-  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
-  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --bg:#FFFFFF; --bg-2:#F6F5F3; --bg-3:#EEECE8;
+  --ink:#17171A; --ink-2:#4F4F57; --ink-3:#6E6E77;
+  --line:#E3E1DC; --line-2:#C9C6BF;
+  --accent:#8A1F3C; --accent-wash:#F8ECF0;
+  --ok:#1F6B4A; --ok-wash:#EAF4EE;
+  --warn:#8A5A00; --warn-wash:#FBF3E3;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Inter","Noto Sans JP",sans-serif;
+  --wrap:1080px; --measure:720px;
 }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
-body{background:var(--paper); color:var(--ink); font-family:var(--sans);
-  font-size:16px; line-height:1.8; margin:0; -webkit-font-smoothing:antialiased;}
-a{color:var(--rose)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--rose); outline-offset:2px; border-radius:4px}
-p{margin:.5em 0}
-.soft{color:var(--ink-soft); font-size:13px}
-.num{font-variant-numeric:tabular-nums}
-.skip-link{position:absolute; left:-9999px; top:0; background:var(--card); color:var(--rose);
-  padding:8px 14px; z-index:99}
-.skip-link:focus{left:8px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.9;
+  margin:0; -webkit-font-smoothing:antialiased; font-feature-settings:"palt"}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+p{margin:.6em 0}
+b,strong{font-weight:700}
+.num,time,.price{font-family:var(--num); font-variant-numeric:tabular-nums}
+.soft{color:var(--ink-3); font-size:13px; line-height:1.7}
+.tnote{font-size:13px; color:var(--ink-3); line-height:1.7}
+.eyebrow{font-size:12px; font-weight:500; letter-spacing:.08em; color:var(--ink-3); margin:0 0 6px}
+.skip-link{position:absolute; left:-9999px; top:0; background:#fff; color:var(--accent); padding:8px 14px; z-index:99}
+.skip-link:focus{left:8px; top:8px; outline:2px solid var(--accent)}
 .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+[hidden]{display:none!important}
 
-/* ── ヘッダー ── */
-header.site{background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20}
-.site-inner{max-width:980px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:20px; flex-wrap:wrap}
-.logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink)}
-.logo svg{display:block}
-.logo .words{line-height:1.25}
-.logo .l1{display:block; font-size:11px; letter-spacing:.3em; color:var(--ink-soft); font-weight:500}
-.logo .l2{display:block; font-family:var(--serif); font-weight:700; font-size:22px; letter-spacing:.05em}
-.logo .l2 em{font-style:normal; color:var(--rose)}
-.logo .sub{font-size:10.5px; color:var(--ink-soft); letter-spacing:.1em; margin-left:14px; align-self:flex-end; padding-bottom:3px}
-nav.tabs{margin-left:auto; display:flex; gap:6px}
-nav.tabs a{font-family:var(--sans); font-size:13.5px; font-weight:500; padding:7px 15px;
-  border-radius:999px; border:1px solid transparent; background:transparent; color:var(--ink-soft);
-  cursor:pointer; text-decoration:none}
-nav.tabs a[aria-current]{background:#F5EBEE; color:var(--rose); border-color:#E3CCD4; font-weight:700}
-nav.tabs a:hover{color:var(--rose)}
-@media(max-width:700px){ .logo .sub{display:none} header.site{position:static} }
+/* ── 骨格 ── */
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px}
+main{max-width:var(--wrap); margin:0 auto; padding:0 24px 64px}
+.measure{max-width:var(--measure)}
+@media(max-width:700px){ .wrap,main{padding-left:18px; padding-right:18px} }
 
-main{max-width:980px; margin:0 auto; padding:0 20px 48px}
-/* 🔴 2026-09-03: 本文列を左寄せにしていたため、比較表だけが広く右側が大きく空いていた。
-   本文列を中央に置き、比較表が左右へ均等にはみ出す形にする。 */
-.measure{max-width:720px; margin-left:auto; margin-right:auto}
-.hero .measure{margin-left:0}
-@media(min-width:1040px){ .hero .measure{margin-left:auto} }
-
-/* ── 見出し体系（明朝・低ジャンプ率） ── */
-h1{font-family:var(--serif); font-weight:600; font-size:26px; line-height:1.55;
-  letter-spacing:.03em; text-wrap:balance; margin:0 0 6px}
-@media(min-width:700px){ h1{font-size:31px} }
-@media(max-width:700px){ h1 br{display:none} h1{font-size:24px} }
-h2{font-family:var(--serif); font-weight:600; font-size:20px; letter-spacing:.06em;
-  margin:46px 0 16px; padding:0 0 8px 14px; position:relative;
-  border-bottom:1px solid var(--line)}
-@media(min-width:700px){ h2{font-size:23px} }
-h2::before{content:""; position:absolute; left:0; top:.32em; width:3px; height:1.15em;
-  background:var(--rose); border-radius:2px}
-h3{font-family:var(--serif); font-weight:600; font-size:16.5px; letter-spacing:.04em; margin:26px 0 8px}
-.empathy{font-size:14px; color:var(--ink-soft); margin:2px 0 18px}
-
-/* ── インデックスタブ（手帖の小口） ── */
-.idx-tabs{display:flex; flex-wrap:wrap; gap:8px 6px; margin:18px 0 4px}
-.idx-tabs a{
-  font-size:13px; font-weight:500; text-decoration:none; color:var(--ink);
-  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--rose);
-  border-radius:0 8px 8px 0; padding:7px 16px 7px 12px;
+/* ── ヘッダー（白・下ヘアライン・sticky 64px） ── */
+header.site{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30}
+.hd{display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:24px; height:64px}
+.brandmark{font-family:var(--serif); font-weight:600; font-size:20px; letter-spacing:.02em; color:var(--ink);
+  text-decoration:none; white-space:nowrap}
+.brandmark small{display:block; font-family:var(--num); font-weight:500; font-size:10px; letter-spacing:.12em;
+  color:var(--ink-3); line-height:1; margin-top:2px}
+.gsearch{display:flex; justify-self:center; width:100%; max-width:420px; height:40px; border:1px solid var(--line-2);
+  border-radius:999px; background:#fff; overflow:hidden}
+.gsearch:focus-within{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-wash)}
+.gsearch input{flex:1; min-width:0; border:0; background:transparent; padding:0 18px; font:inherit; font-size:14px; color:var(--ink); outline:none}
+.gsearch button{border:0; background:transparent; color:var(--ink-2); font:inherit; font-size:13px; font-weight:500; padding:0 16px; cursor:pointer}
+.gsearch button:hover{color:var(--accent)}
+nav.gnav{display:flex; gap:4px; min-width:0}
+nav.gnav a{font-size:13.5px; font-weight:500; color:var(--ink-2); text-decoration:none; padding:8px 10px; border-bottom:2px solid transparent}
+nav.gnav a:hover{color:var(--ink)}
+nav.gnav a[aria-current]{color:var(--ink); border-bottom-color:var(--accent)}
+@media(max-width:900px){
+  .hd{grid-template-columns:auto minmax(0,1fr); height:auto; gap:8px 12px; padding-top:10px}  /* .wrap の左右paddingは残す（0にするとナビが画面外へはみ出す） */
+  .gsearch{grid-column:2; justify-self:end; max-width:220px; height:36px}
+  .gsearch button{padding:0 12px}
+  nav.gnav{grid-column:1/3; margin:0 -18px; padding:2px 18px 0; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch}
+  nav.gnav::-webkit-scrollbar{display:none}
+  nav.gnav a{white-space:nowrap; padding:8px 8px 10px}
+  header.site{position:static}
 }
-.idx-tabs a:hover{background:#F5EBEE}
-.idx-tabs a.on{background:var(--rose); border-color:var(--rose); color:#fff; font-weight:700}
-.idx-tabs a i{font-style:normal; font-size:11.5px; color:#6A6063; margin-left:6px}
-.idx-tabs a.on i{color:#EDD5DC}
-.idx-tabs span{font-size:13px; color:var(--ink-soft); background:transparent; border:1px dashed var(--line);
-  border-radius:0 8px 8px 0; padding:7px 16px 7px 12px}
+@media(max-width:400px){ .gsearch{max-width:160px} .gsearch input{padding:0 12px} }
 
-/* ══ トップ ══ */
-.hero{padding:46px 0 10px;
-  background-image:linear-gradient(#00000006 1px,transparent 1px),linear-gradient(90deg,#00000006 1px,transparent 1px);
-  background-size:24px 24px; margin:0 -20px; padding-left:20px; padding-right:20px}
-.hero h1{font-size:27px}
-@media(min-width:700px){ .hero h1{font-size:33px} }
-.hero .lead{font-size:15px; color:var(--ink-soft); max-width:36em}
-.searchbox{margin:20px 0 4px; display:flex; max-width:520px; border:1.5px solid var(--line);
-  border-radius:999px; background:var(--card); overflow:hidden}
-.searchbox:focus-within{border-color:var(--rose); box-shadow:0 0 0 2px #E3CCD4}
-.searchbox input{flex:1; border:none; padding:12px 20px; font-family:var(--sans); font-size:16px;
-  background:transparent; color:var(--ink); outline:none; min-width:0}
-.searchbox .go{border:none; background:var(--rose); color:#fff; font-family:var(--sans);
-  font-weight:700; font-size:13.5px; padding:0 24px; cursor:pointer; letter-spacing:.08em}
+/* ── 見出し（装飾なし・大きさと余白だけで階層） ── */
+h1{font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.4; letter-spacing:0; margin:0 0 12px; text-wrap:balance}
+h2{font-family:var(--serif); font-weight:600; font-size:22px; line-height:1.4; margin:64px 0 16px; letter-spacing:0}
+h3{font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.5; margin:32px 0 8px}
+h2 small{font-family:var(--num); font-weight:500; font-size:13px; color:var(--ink-3); margin-left:8px; letter-spacing:.04em}
+h2[id]{scroll-margin-top:88px}
+@media(max-width:700px){
+  h1{font-size:23px; line-height:1.45} h1 br{display:none}
+  h2{font-size:19px; margin:48px 0 14px} h2[id]{scroll-margin-top:64px}
+}
+@media(min-width:701px){ h1{word-break:keep-all; overflow-wrap:anywhere} }
 
-.newlist{display:flex; flex-direction:column; gap:10px}
-.newcard{display:flex; gap:16px; align-items:center; flex-wrap:wrap; background:var(--card);
-  border:1px solid var(--line); border-radius:10px; padding:14px 18px; text-decoration:none; color:var(--ink)}
-.newcard:hover{border-color:#D9BFC8}
-.newcard .brand{font-size:11px; letter-spacing:.12em; color:var(--ink-soft); min-width:86px}
-.newcard .name{font-family:var(--serif); font-weight:600; font-size:16px}
-.newcard .badge{font-size:11.5px; font-weight:700; letter-spacing:.06em; padding:3px 9px;
-  border:1px solid var(--azuki); color:var(--azuki); border-radius:4px; background:#FBF4F6}
-.newcard .badge.low{border-color:#B98A2E; color:#8A6318; background:var(--amber-wash)}
-/* 状態バッジ（5種）。色だけで区別させず、文言で伝える */
-.badge.st-ended{border-color:var(--azuki); color:var(--azuki); background:#FBF4F6}
-.badge.st-partial{border-color:#8A6318; color:#8A6318; background:var(--amber-wash)}
-.badge.st-delisted{border-color:#5E5A66; color:#5E5A66; background:#F1EFF3}
-.badge.st-ending{border-color:#2E6B8A; color:#2E6B8A; background:#EDF4F8}
-.badge.st-withdrawn{border-color:#3C3C3C; color:#3C3C3C; background:#EEEEEE}
-.newcard .chips3{display:flex; gap:4px}
-.newcard .chips3 i{width:16px; height:16px; border-radius:4px; display:inline-block;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
-.newcard .date{font-size:11px; color:var(--ink-soft); margin-left:auto; font-variant-numeric:tabular-nums}
+/* ── チップ（状態）。色は2系統＋現行 ── */
+.chip{display:inline-block; font-size:12px; font-weight:500; line-height:1; padding:5px 8px; border-radius:4px;
+  border:1px solid var(--line-2); color:var(--ink-2); background:#fff; white-space:nowrap; vertical-align:middle}
+.chip.st-partial,.chip.st-ending{border-color:#D9B86A; color:var(--warn); background:var(--warn-wash)}
+.chip.ok{border-color:#BFDBCB; color:var(--ok); background:var(--ok-wash)}
+.chip.k-waiting,.chip.k-soldout,.chip.k-gone,.chip.k-mixed,.chip.k-limited,.chip.k-available{border-color:var(--line-2)}
+.chip.k-available{border-color:#BFDBCB; color:var(--ok); background:var(--ok-wash)}
 
-.brandchips{display:flex; flex-wrap:wrap; gap:8px}
-.brandchips span,.brandchips a{font-size:13px; padding:6px 15px; background:var(--card); border:1px solid var(--line);
-  border-radius:999px; color:var(--ink); text-decoration:none}
-.brandchips a:hover{border-color:var(--rose); color:var(--rose)}
-.brandchips span{color:var(--ink-soft); opacity:.7}
-.intro{font-size:14.5px; color:var(--ink); max-width:720px; margin:6px 0 14px}
+/* ── トップ: ヒーロー ── */
+.hero{padding:56px 0 40px; border-bottom:1px solid var(--line)}
+.hero .display{font-family:var(--serif); font-weight:600; font-size:40px; line-height:1.3; letter-spacing:0; margin:0 0 14px; max-width:20em; text-wrap:balance}
+.hero .lead{font-size:16px; color:var(--ink-2); max-width:38em; margin:0 0 24px}
+.bigsearch{display:flex; max-width:640px; height:56px; border:1px solid var(--line-2); border-radius:999px; background:#fff; overflow:hidden}
+.bigsearch:focus-within{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-wash)}
+.bigsearch input{flex:1; min-width:0; border:0; padding:0 24px; font:inherit; font-size:16px; color:var(--ink); outline:none; background:transparent}
+.bigsearch button{border:0; background:var(--ink); color:#fff; font:inherit; font-weight:700; font-size:14px; padding:0 26px; cursor:pointer}
+.bigsearch button:hover{background:var(--accent)}
+.hit{min-height:1.4em; margin:8px 0 0; font-size:13px; color:var(--ink-3)}
+.herostats{display:flex; gap:32px; flex-wrap:wrap; margin:28px 0 0}
+.herostats div{display:flex; flex-direction:column; gap:2px}
+.herostats em{font:600 22px/1 var(--num); font-style:normal; color:var(--ink)}
+.herostats span{font-size:12px; color:var(--ink-3); letter-spacing:.04em}
+@media(max-width:700px){
+  .hero{padding:32px 0 28px}
+  .hero .display{font-size:26px; line-height:1.4} .hero .display br{display:inline}
+  .hero .lead{font-size:15px}
+  .bigsearch{height:50px} .bigsearch input{padding:0 18px; font-size:15px} .bigsearch button{padding:0 18px}
+  .herostats{gap:22px; margin-top:22px} .herostats em{font-size:20px}
+}
 
-.guide-card{background:var(--card); border:1px solid var(--line); border-left:3px solid #D9B44A;
-  border-radius:0 10px 10px 0; padding:15px 20px; display:block; text-decoration:none; color:var(--ink)}
-.guide-card b{font-family:var(--serif); font-weight:600}
-.guide-card span{display:block; font-size:13px; color:var(--ink-soft); margin-top:2px}
+/* ── フィルタ行（sticky・カテゴリ＋状態） ── */
+.filters{position:sticky; top:64px; z-index:20; background:#fff; border-bottom:1px solid var(--line);
+  margin:0 -24px; padding:10px 24px; display:flex; gap:8px 20px; flex-wrap:wrap; align-items:center}
+.filters .grp{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
+.filters .lbl{font-size:12px; color:var(--ink-3); margin-right:2px; flex:0 0 auto; white-space:nowrap}
+.fchip{font-size:13px; font-weight:500; color:var(--ink-2); background:#fff; border:1px solid var(--line-2); border-radius:999px;
+  padding:6px 12px; text-decoration:none; cursor:pointer; line-height:1.2; font-family:inherit}
+.fchip i{font-style:normal; font-family:var(--num); font-size:12px; color:var(--ink-3); margin-left:5px}
+.fchip:hover{background:var(--bg-2)}
+.fchip.on{background:var(--ink); color:#fff; border-color:var(--ink)} .fchip.on i{color:#CFCFD4}
+.fchip[aria-current]{background:var(--ink); color:#fff; border-color:var(--ink)} .fchip[aria-current] i{color:#CFCFD4}
+@media(max-width:900px){ .filters{position:static; margin:0 -18px; padding:10px 18px; gap:8px 12px} }
+@media(max-width:700px){
+  .filters{display:block; padding:4px 18px}
+  .filters .grp{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin:0 -18px; padding:6px 18px; min-width:0}
+  .filters .grp::-webkit-scrollbar{display:none}
+  .fchip{white-space:nowrap}
+}
 
-/* ══ 記事 ══ */
-.crumb{font-size:12px; color:var(--ink-soft); margin:16px 0 2px}
-.crumb a{color:var(--ink-soft)}
-.crumb b{color:var(--rose); font-weight:500}
-.crumb b a{color:var(--rose)}
-.prnote{font-size:12.5px; color:var(--ink); background:var(--th-bg);
-  padding:5px 13px; border-radius:6px; margin:0 auto 12px}
-.meta{font-size:12.5px; color:var(--ink-soft); display:flex; gap:18px; flex-wrap:wrap; margin:10px 0 16px}
-.meta b{font-weight:500; font-variant-numeric:tabular-nums}
-.meta a{color:var(--ink-soft)}
+/* ── 記録の行（一覧共通） ── */
+.reclist{border-bottom:1px solid var(--line)}
+.rec{display:grid; grid-template-columns:110px 1fr 280px 20px; gap:16px; align-items:center;
+  padding:18px 8px; border-top:1px solid var(--line); color:var(--ink); text-decoration:none}
+.rec:hover{background:var(--bg-2)}
+.rec-brand{font:500 12px/1.3 var(--num); letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase}
+.rec-name{font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.45; display:block}
+.rec-sub{font-size:13px; color:var(--ink-2); display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:5px}
+.rec-sub .num{color:var(--ink-3)}
+.rec-alt{font-size:13px; color:var(--ink-2); line-height:1.5}
+.rec-alt small{display:block; font-size:11px; color:var(--ink-3); letter-spacing:.04em; margin-bottom:2px}
+.rec-alt em{font:600 15px var(--num); color:var(--ink); font-style:normal; margin-left:6px; white-space:nowrap}
+.rec-go{color:var(--ink-3); font-size:16px}
+.rec:hover .rec-go{color:var(--accent)}
+/* 記事内の関連記録は本文幅（720px）なのでPCでもSPと同じ2列レイアウト */
+.art-main .rec{grid-template-columns:1fr 20px; gap:4px 8px; padding:14px 2px}
+.art-main .rec-brand,.art-main .rec-main,.art-main .rec-alt{grid-column:1}
+.art-main .rec-alt{margin-top:4px}
+.art-main .rec-go{grid-row:1/4; grid-column:2; align-self:center}
+@media(max-width:800px){
+  .rec{grid-template-columns:1fr 20px; gap:4px 8px; padding:14px 2px}
+  .rec-brand{grid-column:1} .rec-main{grid-column:1} .rec-alt{grid-column:1; margin-top:4px}
+  .rec-go{grid-row:1/4; grid-column:2; align-self:center}
+  .rec-name{font-size:16px}
+}
+.list-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:40px 0 0}
+.list-head h2{margin:0}
+.sortsw{display:flex; gap:2px; font-size:12.5px}
+.sortsw button{font:inherit; font-size:12.5px; border:1px solid var(--line-2); background:#fff; color:var(--ink-2); padding:5px 10px; cursor:pointer; border-radius:4px}
+.sortsw button.on{background:var(--bg-3); color:var(--ink); border-color:var(--line-2)}
+.nohit{padding:32px 0; color:var(--ink-3); font-size:14px}
 
-/* 目次（結論の直後。意図別に直接飛べる） */
-nav.toc{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 18px; margin:10px 0 6px}
-nav.toc b{font-family:var(--serif); font-weight:600; font-size:13px; letter-spacing:.1em; color:var(--ink-soft)}
-nav.toc ol{margin:6px 0 0; padding-left:20px; font-size:13.5px; columns:2; column-gap:24px}
-nav.toc li{margin:2px 0; break-inside:avoid}
-nav.toc a{color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--line)}
-nav.toc a:hover{color:var(--rose)}
-@media(max-width:560px){ nav.toc ol{columns:1} }
-h2[id]{scroll-margin-top:16px}
+/* ── 最近終了（横並びの小カード） ── */
+.recent{display:grid; grid-template-columns:repeat(6,1fr); gap:12px}
+.recent a{display:block; border:1px solid var(--line); border-radius:8px; padding:14px 14px 12px; text-decoration:none; color:var(--ink); min-width:0}
+.recent a:hover{border-color:var(--line-2); background:var(--bg-2)}
+.recent time{display:block; font:600 18px/1 var(--num); margin-bottom:8px}
+.recent .n{display:block; font-family:var(--serif); font-weight:600; font-size:14px; line-height:1.45; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+.recent .b{display:block; font:500 11px/1.4 var(--num); letter-spacing:.05em; color:var(--ink-3); margin-top:6px; text-transform:uppercase}
+@media(max-width:900px){ .recent{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:560px){ .recent{grid-template-columns:repeat(2,1fr); gap:10px} }
 
-/* 関連する記録・次のアクション */
-.related{margin-top:16px}
-.related .newlist{margin-top:10px}
-.totop{display:inline-block; font-size:12.5px; color:var(--ink-soft); margin-top:32px; text-decoration:none}
-.totop:hover{color:var(--rose)}
-.tbd{color:var(--ink-soft); border-bottom:1px dotted #B9AEB1}
-.official{font-size:12.5px; margin:-2px 0 8px; display:flex; flex-wrap:wrap; gap:4px 8px; align-items:center}
-.official > a::after,ol.sources a::after{content:" ↗"; font-size:.85em; color:var(--ink-soft)}
-/* 商品ごとの「Amazonで見る／楽天で見る」（小さなテキストリンク。ボタン連打にはしない） */
-.shoplinks{display:inline-flex; gap:10px; align-items:center}
-.shoplink{font-weight:700; text-decoration:none; border-bottom:1.5px solid currentColor; padding-bottom:1px}
-.shoplink.amz{color:var(--amz)} .shoplink.rkt{color:var(--rkt)}
-.shoplink.off{color:var(--ink-soft); font-weight:500; border-bottom:1px dotted var(--ink-soft)}
-/* 表内の在庫リンクは縦積み（横並び＋nowrap にすると列幅を押し広げて表がはみ出す） */
+/* ── ブランドのグリッド ── */
+.brandgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.brandgrid a{display:block; border:1px solid var(--line); border-radius:8px; padding:16px 16px 14px; text-decoration:none; color:var(--ink)}
+.brandgrid a:hover{border-color:var(--line-2); background:var(--bg-2)}
+.brandgrid .bn{display:block; font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.4}
+.brandgrid .br{display:block; font:500 11px/1.4 var(--num); letter-spacing:.06em; color:var(--ink-3); text-transform:uppercase; margin-top:2px}
+.brandgrid .bc{display:block; font-size:12.5px; color:var(--ink-2); margin-top:10px}
+.brandgrid .bc em{font:600 14px var(--num); font-style:normal; color:var(--ink)}
+@media(max-width:900px){ .brandgrid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:560px){ .brandgrid{grid-template-columns:repeat(2,1fr); gap:10px} }
+
+.guide-row{display:block; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px 4px; text-decoration:none; color:var(--ink)}
+.guide-row:hover{background:var(--bg-2)}
+.guide-row b{font-family:var(--serif); font-weight:600; font-size:16px}
+.guide-row span{display:block; font-size:13px; color:var(--ink-2); margin-top:4px}
+
+/* ── 索引ページの頭 ── */
+.pagehead{padding:36px 0 8px}
+.pagehead .intro{font-size:15px; color:var(--ink-2); max-width:44em; margin:8px 0 0}
+.crumb{font-size:12.5px; color:var(--ink-3); margin:16px 0 0; display:flex; gap:6px; flex-wrap:wrap}
+.crumb a{color:var(--ink-3); text-decoration:none; padding:4px 0}
+.crumb a:hover{color:var(--accent); text-decoration:underline}
+.crumb b{font-weight:400; color:var(--ink-3)}
+.prnote{font-size:12.5px; color:var(--ink-3); margin:6px 0 0}
+
+/* ── 記事: 2カラム（≥1040px は右レール固定） ── */
+.art{display:grid; grid-template-columns:minmax(0,1fr); gap:0}
+.art-main{min-width:0; max-width:var(--measure)}
+.rail{display:none}
+@media(min-width:1040px){
+  .art{grid-template-columns:minmax(0,var(--measure)) 260px; gap:56px; align-items:start}
+  .rail{display:block; position:sticky; top:88px}
+}
+.rail .toc{border-top:1px solid var(--line); padding-top:14px}
+.rail .toc b{display:block; font-size:12px; letter-spacing:.08em; color:var(--ink-3); font-weight:500; margin-bottom:6px}
+.rail .toc ol{list-style:none; margin:0; padding:0}
+.rail .toc li a{display:block; font-size:13.5px; color:var(--ink-2); text-decoration:none; padding:6px 0 6px 12px; border-left:2px solid transparent; line-height:1.5}
+.rail .toc li a:hover{color:var(--ink); border-left-color:var(--line-2)}
+.rail .trust{border-top:1px solid var(--line); margin-top:18px; padding-top:14px; font-size:12.5px; color:var(--ink-2); line-height:1.7}
+.rail .trust b{display:block; font-size:12px; letter-spacing:.08em; color:var(--ink-3); font-weight:500; margin-bottom:6px}
+.rail .trust em{font-style:normal; font-family:var(--num)}
+
+/* 記事の頭 */
+.art-head{padding:20px 0 0}
+.art-head .eyebrow{margin-bottom:10px}
+.art-head .eyebrow a{color:var(--ink-3); text-decoration:none}
+.art-head .eyebrow a:hover{color:var(--accent)}
+
+/* 答えカード */
+.answer{border:1px solid var(--line-2); border-radius:12px; padding:22px 24px 18px; margin:22px 0 8px; background:#fff}
+.answer .status{display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:14px; color:var(--ink-2); margin:0}
+.answer .status .chip{font-size:12.5px; padding:6px 9px}
+.answer .status .num{color:var(--ink)}
+.facts{display:grid; grid-template-columns:1fr 1fr 1fr 1.7fr; gap:14px 18px; margin:16px 0 0; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.facts > div{min-width:0}
+.facts dt{font-size:12px; color:var(--ink-3); letter-spacing:.04em; margin:0 0 4px; line-height:1.4}
+.facts dd{margin:0; font-size:14px; line-height:1.5; color:var(--ink)}
+.facts em{font:600 22px/1.1 var(--num); font-style:normal; color:var(--ink); letter-spacing:-.01em}
+.facts small{font-size:12px; color:var(--ink-2); margin-left:2px}
+.facts .diff{display:block; font:500 12px/1.5 var(--num); color:var(--ink-3); margin-top:2px}
+.facts .alt-sub{display:block; font-size:12px; color:var(--ink-2); margin-top:2px}
+.facts .alt-name{display:block; font-family:var(--serif); font-weight:600; font-size:14px; line-height:1.45; margin-bottom:4px}
+.answer ul{margin:14px 0 0; padding-left:1.2em}
+.answer li{font-size:14.5px; line-height:1.85; margin:4px 0}
+.answer details{margin-top:6px}
+.answer details summary{font-size:13px; color:var(--accent); cursor:pointer; padding:4px 0}
+.answer details ul{margin-top:6px}
+.answer .asrc{font-size:12.5px; color:var(--ink-3); margin:14px 0 0; line-height:1.6}
+.answer .asrc .num{color:var(--ink-2)}
+@media(max-width:700px){
+  .answer{padding:18px 16px 14px; border-radius:10px}
+  .facts{grid-template-columns:1fr 1fr; gap:14px 14px}
+  .facts em{font-size:20px}
+  .answer li{font-size:14px}
+}
+
+/* SPのジャンプ帯 */
+nav.jump{display:none}
+@media(max-width:1039px){
+  nav.jump{display:flex; gap:6px; position:sticky; top:0; z-index:15; background:#fff; padding:8px 0; margin:14px 0 4px; border-bottom:1px solid var(--line)}
+  nav.jump a{flex:1; text-align:center; font-size:12.5px; font-weight:500; padding:8px 4px; border:1px solid var(--line-2); border-radius:999px; color:var(--ink); text-decoration:none; white-space:nowrap}
+  nav.jump a:hover{background:var(--bg-2)}
+}
+
+/* 行リスト（在庫・スペック） */
+dl.rows{margin:0; border-top:1px solid var(--line)}
+dl.rows > div{display:grid; grid-template-columns:150px 1fr; gap:12px; padding:12px 0; border-bottom:1px solid var(--line)}
+dl.rows dt{font-size:13px; color:var(--ink-3); line-height:1.6; padding-top:2px}
+dl.rows dd{margin:0; font-size:15px; line-height:1.75}
+@media(max-width:560px){ dl.rows > div{grid-template-columns:1fr; gap:2px; padding:10px 0} dl.rows dt{font-size:12px} dl.rows dd{font-size:14.5px} }
+.official-link{font-size:14px; margin:0 0 14px}
+.official-link a{font-weight:500}
+.buynote{font-size:13px; color:var(--ink-3); margin:12px 0 8px}
+.caution{background:var(--warn-wash); border-radius:8px; padding:12px 16px; font-size:13px; color:var(--warn); line-height:1.75; margin:12px 0 0}
+.caution a{color:var(--warn)}
+.buyrow{display:flex; gap:12px; flex-wrap:wrap; margin:14px 0}
+.buybtn{font-weight:700; font-size:14px; border-radius:8px; min-height:48px; padding:6px 22px; border:none; cursor:pointer; color:#fff; background:var(--accent);
+  display:inline-flex; flex-direction:column; justify-content:center; align-items:flex-start; text-decoration:none}
+.buybtn small{font-weight:400; font-size:12px}
+@media(max-width:560px){ .buybtn{width:100%; align-items:center} }
+.shoplinks{display:inline-flex; gap:12px; align-items:center}
+.shoplink{font-weight:500; text-decoration:underline; text-underline-offset:3px}
+
+/* 旧テーブル（固定ページで使用） */
+.minitbl{border-collapse:collapse; width:100%; font-size:14px}
+.minitbl th,.minitbl td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+.minitbl th{font-weight:500; font-size:13px; color:var(--ink-3); white-space:nowrap; width:9em}
+.tblcard{margin:14px 0 6px; border-top:1px solid var(--line)}
+@media(max-width:560px){ .minitbl th{white-space:normal; width:6.5em; padding:10px 8px 10px 0} .minitbl td{padding:10px 0 10px 8px} }
+
+/* 比較表（PC） */
+.criteria{font-size:14px; color:var(--ink-2); margin:0 0 10px}
+.tblwrap{margin:16px 0 8px; border:1px solid var(--line-2); border-radius:8px; overflow:hidden; background:#fff}
+table.cmp{table-layout:fixed; border-collapse:separate; border-spacing:0; width:100%; font-size:13.5px; line-height:1.6}
+.cmp thead th:first-child{width:7.2em}
+.cmp th,.cmp td{padding:12px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; background:#fff; overflow-wrap:anywhere}
+.cmp thead th{font-size:13px; font-weight:600; color:var(--ink); background:var(--bg-2); border-bottom:1px solid var(--line-2); vertical-align:bottom; font-family:var(--serif)}
+.cmp thead th .b{display:block; font:500 11px/1.4 var(--num); letter-spacing:.06em; color:var(--ink-3); margin-top:3px; text-transform:uppercase}
+.cmp tbody th{font-weight:500; font-size:12.5px; color:var(--ink-3); background:#fff; line-height:1.5}
+.cmp thead th:first-child{background:var(--bg-2)}
+.cmp thead th.old,.cmp tbody td.old{background:var(--bg-2); border-right:1px solid var(--line-2)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none}
+.cmp .ok{color:var(--ok); font-weight:700} .cmp .ng{color:var(--ink-3)}
+.cmp .price{font:600 18px/1.2 var(--num); color:var(--ink)}
+.cmp .price small,.cmpcard .stats small{font:400 11.5px var(--sans); color:var(--ink-3); margin-left:2px}
+.cmp .diff{display:block; font:500 12px/1.4 var(--num); color:var(--ink-3); margin-top:2px}
+.cmp .swrow{display:flex; gap:6px; flex-wrap:wrap}
+.cmp tr.shoprow th,.cmp tr.shoprow td{border-top:1px solid var(--line-2)}
+.cmp th .ad{display:inline-block; font-size:10px; font-weight:500; letter-spacing:.06em; color:var(--ink-3); border:1px solid var(--line); border-radius:3px; padding:0 5px; margin-left:6px}
 .cmp td.shop .shoplinks{display:flex; flex-direction:column; align-items:flex-start; gap:6px; font-size:12.5px}
 
-/* 結論ボックス（白カード＋細主色枠＋見出し帯＋しおり）
-   🔴 2026-09-03: 確認日スタンプとしおりを絶対配置のまま本文に重ねていたので、
-   見出し帯（.vhead）を流し込みにして重なりを構造的に起こらなくした。 */
-.verdict{position:relative; background:var(--card); border:1px solid var(--rose); border-radius:10px;
-  padding:0 24px 18px; margin:14px 0 10px; box-shadow:0 1px 3px rgba(0,0,0,.06); overflow:hidden}
-.verdict .vhead{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-  margin:0 -24px 16px; padding:0 56px 0 0; min-height:44px;
-  background:#FCF7F8; border-bottom:1px solid #EFDFE4}
-.verdict .tab{display:flex; align-items:center; align-self:stretch; background:var(--rose); color:#fff;
-  font-family:var(--serif); font-weight:600; font-size:12.5px; letter-spacing:.24em;
-  padding:0 18px; border-radius:9px 0 8px 0}
-.verdict .ribbon{position:absolute; top:0; right:24px; width:14px; height:44px; background:var(--rose);
-  clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 8px),0 100%)}
-.verdict .stamp{font-size:11.5px; color:var(--azuki); border:1px solid var(--azuki); border-radius:4px;
-  padding:2px 9px; letter-spacing:.06em; font-variant-numeric:tabular-nums; background:#fff; white-space:nowrap}
-.verdict ul{margin:0; padding-left:20px}
-.verdict li{margin:7px 0; font-size:14.5px}
-.verdict .src{font-size:11.5px; color:var(--ink-soft); margin-top:14px; padding-top:10px;
-  border-top:1px dashed var(--line)}
-@media(max-width:560px){
-  .verdict{padding:0 16px 16px}
-  .verdict .vhead{margin:0 -16px 14px; padding-right:48px}
-}
-.pair{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
-  background:var(--zebra); border-radius:8px; padding:10px 14px}
-.pair .lbl{font-size:11px; color:var(--ink-soft); letter-spacing:.06em}
-.chip{display:inline-flex; flex-direction:column; align-items:center; gap:3px}
-.chip i{width:28px; height:28px; border-radius:6px; display:inline-block;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
-.chip span{font-size:12px; color:var(--ink-soft); letter-spacing:.02em}
-.pair .arrow{color:var(--rose); font-size:16px}
-
-/* 在庫ボタン＋注意 */
-.buyrow{display:flex; gap:12px; flex-wrap:wrap; margin:14px 0}
-.buybtn{font-family:var(--sans); font-weight:700; font-size:14px; letter-spacing:.04em;
-  border-radius:8px; min-height:48px; padding:6px 26px; border:none; cursor:pointer; color:#fff;
-  display:inline-flex; flex-direction:column; justify-content:center; align-items:flex-start;
-  text-decoration:none}
-.buybtn.amz{background:var(--amz)} .buybtn.rkt{background:var(--rkt)}
-.buybtn small{font-weight:400; font-size:12px; opacity:.92; letter-spacing:.02em}
-.buybtn.off{background:#EFE9E4; color:var(--ink-soft); border:1px dashed #C9C0BB; cursor:default}
-@media(max-width:560px){ .buybtn{width:100%; align-items:center} }
-.caution{background:var(--amber-wash); border-left:4px solid #D9B44A; border-radius:0 8px 8px 0;
-  padding:12px 18px; font-size:13px; color:var(--amber-ink); line-height:1.8}
-.caution a{color:var(--amber-ink)}
-
-/* 時系列・在庫の小表 */
-.minitbl{border-collapse:collapse; width:100%; font-size:13.5px; background:var(--card);
-  border:1px solid var(--line); border-radius:10px; overflow:hidden}
-.minitbl th,.minitbl td{padding:10px 16px; border-bottom:1px solid var(--line); text-align:left}
-.minitbl tr:last-child th,.minitbl tr:last-child td{border-bottom:none}
-.minitbl th{background:var(--th-bg); font-weight:700; font-size:12px; letter-spacing:.06em; white-space:nowrap; width:9em}
-@media(max-width:560px){ .minitbl th{white-space:normal; width:6.5em; padding:10px 10px} .minitbl td{padding:10px 12px} }
-.tblcard{border-radius:10px; overflow:hidden; border:1px solid var(--line); margin:14px 0 6px}
-.tblcard .minitbl{border:none; border-radius:0}
-
-/* 比較表（PC: 1列目sticky／スマホ: 商品ごとのカードに切替）
-   🔴 2026-09-03: 本文列(720px)より表だけ広く、飛び出して見えたので本文と同じ幅に揃えた。
-   table-layout:fixed で列を均等割りし、幅が中身に押し広げられないようにする。 */
-.tblwrap{margin:16px auto 6px; max-width:720px; border:1px solid var(--line); border-radius:10px; background:var(--card)}
-table.cmp{table-layout:fixed; border-collapse:separate; border-spacing:0; width:100%; font-size:13px; line-height:1.6}
-.cmp thead th:first-child{width:7.4em}
-.cmp th,.cmp td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;
-  background:var(--card); word-break:normal; overflow-wrap:anywhere}
-.cmp thead th{font-size:12.5px; letter-spacing:.04em; color:var(--ink); font-weight:700;
-  background:var(--th-bg); border-bottom:1.5px solid var(--line); vertical-align:bottom}
-.cmp thead th .b{font-size:11.5px; font-weight:500; color:#6A6063; display:block; letter-spacing:.1em; margin-top:2px}
-.cmp tbody th{background:var(--th-bg); font-weight:700; font-size:12.5px; line-height:1.5}
-.cmp thead th:first-child{background:var(--th-bg)}
-.cmp tbody tr.z td{background:var(--zebra)}
-.cmp tr.grp th,.cmp tr.grp td{background:#EFE4E0; font-size:11px; font-weight:700; letter-spacing:.14em;
-  color:#6E5A52; padding:5px 14px; white-space:normal; border-bottom:none}
-/* 在庫を見る行（広告リンク）は上に区切りを入れて本文データと分ける */
-.cmp tr.shoprow th,.cmp tr.shoprow td{border-top:2px solid var(--line)}
-.cmp th .ad{display:inline-block; font-size:10px; font-weight:700; letter-spacing:.08em; color:var(--ink-soft);
-  border:1px solid var(--line); border-radius:3px; padding:0 5px; margin-left:6px; vertical-align:1px; background:#fff}
-/* 旧商品（比較の基準）の列は色を変えて「基準」だと分かるようにする */
-.cmp thead th.old{background:#EAD9D0}
-.cmp tbody td.old{background:#F6EFEB; border-right:1px solid var(--line)}
-.cmp tbody tr.z td.old{background:#F1E8E2}
-.cmp td .u{font-size:11px; color:var(--ink-soft)}
-.cmp .ok,.cmpcard .ok{color:var(--rose); font-weight:700}
-.cmp .ng,.cmpcard .ng{color:var(--ink-soft)}
-.cmp .num,.cmpcard .num{font-variant-numeric:tabular-nums}
-
-/* スマホ用カード（<800px で表の代わりに表示） */
+/* 比較（SPカード） */
 .cmpcards{display:none}
-@media(max-width:799px){ .tblwrap{display:none} .cmpcards{display:grid; gap:12px; margin:16px 0 6px} }
-.cmpcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px 12px; position:relative}
-.cmpcard.old{background:var(--zebra); border-style:dashed}
-.cmpcard .tag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.1em; color:var(--rose);
-  background:#F5EBEE; border-radius:4px; padding:2px 8px; margin-bottom:6px}
-.cmpcard.old .tag{color:#6E5A52; background:#EFE4E0}
-.cmpcard h4{margin:0 0 10px; font-family:var(--serif); font-weight:600; font-size:16px; line-height:1.4}
-.cmpcard h4 span{display:block; font-family:var(--sans); font-weight:500; font-size:11px; color:var(--ink-soft); letter-spacing:.08em; margin-top:2px}
-.cmpcard dl{margin:0; display:grid; grid-template-columns:9.6em 1fr; gap:7px 10px; font-size:13.5px; line-height:1.6}
+@media(max-width:799px){ .tblwrap{display:none} .cmpcards{display:grid; gap:12px; margin:16px 0 8px} }
+.cmpcard{border:1px solid var(--line); border-radius:10px; padding:16px 16px 14px; background:#fff}
+.cmpcard.old{background:var(--bg-2); border-color:var(--line-2)}
+.cmpcard header{display:flex; gap:10px; align-items:flex-start; flex-wrap:wrap; margin-bottom:12px}
+.cmpcard .tag{font-size:11px; font-weight:500; letter-spacing:.06em; color:var(--ink-3)}
+.cmpcard h3{margin:0; font-size:16px; line-height:1.4; flex-basis:100%}
+.cmpcard h3 span{display:block; font:500 11px/1.4 var(--num); letter-spacing:.06em; color:var(--ink-3); margin-top:3px; text-transform:uppercase}
+.cmpcard .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:0 0 12px; padding:12px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.cmpcard .stats div{min-width:0}
+.cmpcard .stats em{font:600 19px/1.1 var(--num); font-style:normal; color:var(--ink)}
+.cmpcard .stats i{display:block; font-style:normal; font-size:11px; color:var(--ink-3); margin-bottom:3px}
+.cmpcard dl{margin:0; display:grid; grid-template-columns:8.5em 1fr; gap:8px 10px; font-size:13.5px; line-height:1.6}
 .cmpcard dl > div{display:contents}
-.cmpcard dt{color:var(--ink-soft); font-size:11.5px; padding-top:3px; line-height:1.45}
-@media(max-width:360px){ .cmpcard dl{grid-template-columns:1fr; gap:2px} .cmpcard dt{padding-top:6px} }
+.cmpcard dt{color:var(--ink-3); font-size:12px; padding-top:2px}
 .cmpcard dd{margin:0}
-.cmpcard .cardshop{margin:12px 0 0; padding-top:10px; border-top:1px dashed var(--line)}
-.cmpcard .cardshop .shoplinks{gap:16px; font-size:13.5px}
-.swrow{display:flex; gap:8px; flex-wrap:wrap}
-.tnote{font-size:12px; color:var(--ink-soft)}
+.cmpcard .ok{color:var(--ok); font-weight:700} .cmpcard .ng{color:var(--ink-3)}
+.cmpcard .cardshop{margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line)}
+@media(max-width:360px){ .cmpcard dl{grid-template-columns:1fr; gap:2px} }
+
+/* 候補の解説 */
+.cand{margin:28px 0 0}
+.cand .eyebrow{margin-bottom:2px}
+.cand h3{margin:0 0 6px}
+.cand p{margin:.4em 0}
+.cand .official{font-size:13.5px; margin:6px 0 0}
+.official a::after,ol.sources a::after{content:" ↗"; font-size:.85em; color:var(--ink-3)}
+
+/* 年表（縦レール） */
+ol.tl{list-style:none; padding:0; margin:16px 0 0 6px; border-left:2px solid var(--line-2)}
+ol.tl li{position:relative; padding:0 0 18px 24px}
+ol.tl li:last-child{padding-bottom:4px}
+ol.tl li::before{content:""; position:absolute; left:-6px; top:.5em; width:10px; height:10px; border-radius:50%; background:#fff; border:2px solid var(--accent)}
+ol.tl li.note::before{border-color:var(--line-2)}
+ol.tl time,ol.tl .lbl{display:block; font:600 14px/1.5 var(--num); color:var(--ink)}
+ol.tl .lbl{font-family:var(--sans); font-weight:500; font-size:12.5px; color:var(--ink-3)}
+ol.tl p{margin:2px 0 0; font-size:14.5px; line-height:1.8}
+
+/* スペック・色 */
+.swatches{display:flex; flex-wrap:wrap; gap:10px 16px; margin:12px 0 4px; padding:0; list-style:none}
+.swatches li{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-2)}
+.swatches i{width:20px; height:20px; border-radius:50%; display:inline-block; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.chip-color{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-2)}
+.chip-color i{width:16px; height:16px; border-radius:50%; display:inline-block; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.pair{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px; background:var(--bg-2); border-radius:8px; padding:10px 14px}
+.pair .lbl{font-size:12px; color:var(--ink-3)}
+.pair .arrow{color:var(--ink-3)}
 
 /* FAQ・出典 */
-details.faq{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:2px 18px; margin:8px 0}
-details.faq summary{font-family:var(--serif); font-weight:600; font-size:14.5px; padding:12px 0; cursor:pointer}
-details.faq summary:focus-visible{outline:2px solid var(--rose); outline-offset:2px; border-radius:4px}
-details.faq p{margin:0 0 14px; font-size:14px}
-ol.sources{font-size:12.5px; color:var(--ink-soft); line-height:2; padding-left:22px}
-ol.sources b{font-weight:500; color:var(--ink)}
-ol.sources a{word-break:break-all}
+details.faq{border-top:1px solid var(--line); padding:2px 0}
+details.faq:last-of-type{border-bottom:1px solid var(--line)}
+details.faq summary{font-family:var(--serif); font-weight:600; font-size:15.5px; padding:14px 28px 14px 0; cursor:pointer; position:relative; list-style:none; line-height:1.5}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+"; position:absolute; right:4px; top:12px; font:500 20px/1 var(--num); color:var(--ink-3)}
+details.faq[open] summary::after{content:"−"}
+details.faq p{margin:0 0 16px; font-size:14.5px; line-height:1.85; color:var(--ink-2)}
+details.sources-wrap summary{font-family:var(--sans); font-weight:500; font-size:14px}
+ol.sources{font-size:13.5px; color:var(--ink-2); line-height:1.7; padding-left:22px; margin:0 0 14px}
+ol.sources li{margin:8px 0}
+ol.sources .dom{font:500 11px/1 var(--num); color:var(--ink-3); border:1px solid var(--line); border-radius:3px; padding:2px 5px; margin-right:6px; vertical-align:1px}
+ol.sources .srcnote{display:block; font-size:12.5px; color:var(--ink-3)}
+.related h2{margin-top:56px}
+.totop{display:inline-block; font-size:13px; color:var(--ink-3); margin-top:32px; text-decoration:none; padding:4px 0}
+.totop:hover{color:var(--accent)}
+.fresh{background:var(--warn-wash); border-radius:8px; padding:10px 14px; font-size:13px; color:var(--warn); margin:12px 0}
 
-footer.site{border-top:1px solid var(--line); background:var(--card); margin-top:56px}
-.foot-inner{max-width:980px; margin:0 auto; padding:26px 20px; font-size:11.5px; color:var(--ink-soft); line-height:2}
-.foot-inner .pr{font-weight:700; color:var(--ink)}
-.foot-links{margin:8px 0 0; display:flex; gap:16px; flex-wrap:wrap}
-.foot-links a{color:var(--ink-soft)}
-.foot-nav{display:flex; flex-wrap:wrap; gap:6px 14px; margin:0 0 10px; padding:0 0 12px; border-bottom:1px solid var(--line)}
-.foot-nav b{color:var(--ink); font-weight:500; margin-right:2px}
-.foot-nav a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted var(--line)}
+/* ── フッター（3列） ── */
+footer.site{border-top:1px solid var(--line); background:var(--bg-2); margin-top:80px}
+.foot-inner{max-width:var(--wrap); margin:0 auto; padding:40px 24px 36px; font-size:13px; color:var(--ink-2); line-height:1.8}
+.foot-notice{font-size:13px; color:var(--ink); margin:0 0 24px; max-width:60em}
+.foot-notice .pr{font-weight:700}
+.foot-cols{display:grid; grid-template-columns:2fr 1fr 1fr; gap:24px 32px; padding:24px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.foot-cols b{display:block; font-size:12px; letter-spacing:.08em; color:var(--ink-3); font-weight:500; margin-bottom:8px}
+.foot-cols a{color:var(--ink-2); text-decoration:none; display:inline-block; padding:3px 0}
+.foot-cols a:hover{color:var(--accent); text-decoration:underline}
+.foot-cols .links{display:flex; flex-wrap:wrap; gap:0 16px}
+.foot-cols .col a{display:block}
+.foot-copy{font-size:12.5px; color:var(--ink-3); margin-top:18px; display:flex; gap:16px; flex-wrap:wrap}
+@media(max-width:700px){ .foot-cols{grid-template-columns:1fr; gap:20px} .foot-inner{padding:32px 18px 28px} footer.site{margin-top:56px} }
 
-/* ── 2026-09-05 UI/UX監査の反映（上書き） ── */
-/* 目次ジャンプで見出しがstickyヘッダーに隠れる（PC 66px）→ 余白を確保。SPはヘッダーがstaticなので小さく */
-h2[id]{scroll-margin-top:84px}
-.idx-tabs[id]{scroll-margin-top:84px}
-@media(max-width:700px){ h2[id]{scroll-margin-top:64px} .idx-tabs[id]{scroll-margin-top:16px} }
-/* 本文色の補助色をAA（紙色の上で5.7:1）に */
-:root{--ink-soft:#6A6063}
-/* SPヘッダーを1段（127px→約60px）。ロゴの1行目を落とし、ナビを詰める。タグラインはロゴ下に残す */
-@media(max-width:700px){
-  .site-inner{padding:8px 14px; gap:8px; flex-wrap:nowrap; align-items:center}
-  .logo{flex:0 0 auto; white-space:nowrap}
-  .logo .l1{display:none} .logo .l2{font-size:18px; white-space:nowrap}
-  .logo .sub{display:none}   /* タグラインはヒーローの見出しが兼ねる。1段に収めるため落とす */
-  nav.tabs{flex:0 0 auto; gap:2px; white-space:nowrap}
-  nav.tabs a{padding:8px 7px; font-size:12.5px; white-space:nowrap; letter-spacing:0}
-  nav.tabs a[href$="about.html"]{display:none}  /* 運営者情報はフッターから。SPは3項目 */
-}
-/* パンくず: 現在ページ名を落とし、全リンク同色・タップ領域24px以上 */
-.crumb a{display:inline-block; padding:4px 2px; text-decoration:underline; text-underline-offset:2px}
-.crumb b,.crumb b a{color:var(--ink-soft); font-weight:400}
-.crumb{margin:16px auto 2px; font-size:12.5px}   /* .measure の中央寄せを打ち消さない */
-/* PR表記は必須文言だが枠を外して1行に（初画面の圧迫を減らす）。必須表記なので12.5px未満にしない */
-.prnote{background:transparent; padding:0; margin:6px auto 2px; font-size:12.5px; border:none}
-.foot-inner,.verdict .stamp{font-size:12.5px}
-/* 索引ページ: 見出し・本文は左寄せ（一覧が全幅なので中央寄せだと段差が出る） */
-.measure.left{margin-left:0}
-/* 本文中の小さなリンクのタップ領域 */
-.official a,.totop,.caution a,.soft a{display:inline-block; padding:4px 0}
-/* PCのH1は単語（空白）区切りで折り返す。「パ／ウダーリップスティック」のような語中の改行を防ぐ */
-@media(min-width:701px){ h1{word-break:keep-all; overflow-wrap:anywhere} }
-/* 320px幅でもヘッダーが横にはみ出さない */
-@media(max-width:340px){ nav.tabs a{padding:8px 5px; font-size:12px} .logo .l2{font-size:16px} }
-/* 共感文は結論の下へ移したので控えめに。SPでは非表示 */
-.empathy{margin:10px 0 6px}
-@media(max-width:560px){ .empathy{display:none} }
-/* 主要セクションへのジャンプ帯（SPのみ・sticky） */
-nav.jump{display:none}
-@media(max-width:700px){
-  nav.jump{display:flex; gap:6px; position:sticky; top:0; z-index:15; background:var(--paper);
-    padding:8px 0; margin:6px 0 10px; border-bottom:1px solid var(--line)}
-  nav.jump a{flex:1; text-align:center; font-size:12.5px; font-weight:700; padding:9px 4px;
-    border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--ink); text-decoration:none}
-}
-/* 目次リンクのタップ領域 */
-nav.toc a{display:inline-block; padding:5px 0}
-/* 出典: 折りたたみ＋名前がリンク。URL全文は出さない */
-details.sources-wrap summary{font-size:13.5px}
-ol.sources{font-size:13px; line-height:1.7; padding-left:20px}
-ol.sources li{margin:6px 0}
-ol.sources .srcnote{display:block; font-size:12px; color:var(--ink-soft)}
-/* 比較カードの見出しはh3（階層の飛びを解消）。旧h4のスタイルを引き継ぐ */
-.cmpcard h3{margin:0 0 10px; font-family:var(--serif); font-weight:600; font-size:16px; line-height:1.4}
-.cmpcard h3 span{display:block; font-family:var(--sans); font-weight:500; font-size:11px; color:var(--ink-soft); letter-spacing:.08em; margin-top:2px}
-.cmpcard dt{font-size:12.5px; line-height:1.6}
-/* 提携前の在庫案内（1行） */
-.buynote{font-size:13px; color:var(--ink-soft); margin:8px 0 6px}
-/* 一覧カード: SPは2段のグリッド。色チップ・確認日は出さない */
-.newcard .brand,.newcard .date{font-size:12.5px}
-@media(max-width:560px){
-  .newcard{display:grid; grid-template-columns:1fr auto; gap:2px 8px; padding:10px 14px}
-  .newcard .brand{grid-column:1}
-  .newcard .date{grid-column:2; grid-row:1; margin:0}
-  .newcard .name{grid-column:1/3; font-size:15px; line-height:1.5}
-  .newcard .badge{grid-column:1/3; justify-self:start}
-}
-/* コントラスト（AA） */
-:root{--amz:#8F5F22}
-.buybtn small{opacity:1}
-.tbd{border-bottom-color:#9A8F93}
-.skip-link:focus{left:8px; top:8px; border:2px solid var(--rose); box-shadow:0 2px 8px rgba(0,0,0,.25)}
-/* タップ領域（チップ・タブ・フッター） */
-.brandchips a{padding:10px 16px; min-height:44px; display:inline-flex; align-items:center}
-.idx-tabs a,.idx-tabs span{min-height:44px; display:inline-flex; align-items:center}
-.foot-nav a,.foot-links a{display:inline-block; padding:4px 0}
-/* 最小文字サイズ 12.5px */
-.tnote,.verdict .src,.newcard .badge,.logo .sub{font-size:12.5px}
-/* トップ: 最近追加 → カテゴリ別の節。見出しの件数は小さく */
-.catsec{margin-top:8px}
-h2 small{font-family:var(--sans); font-weight:500; font-size:13px; color:var(--ink-soft); margin-left:4px}
-.catsec .more{text-align:right; margin:8px 0 22px; font-size:13.5px}
-.catsec .more a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; padding:6px 0; display:inline-block}
-.hit{min-height:1.4em; margin:6px 0 0; font-size:13px}
-.brandchips a i{font-style:normal; font-size:11.5px; color:var(--ink-soft); margin-left:5px}
-.searchbox{margin-top:14px}
-.foot-nav a:hover{color:var(--rose)}
-
-[hidden]{display:none!important}
+/* ── 固定ページ（運営者情報・免責等） ── */
+.static-body{max-width:var(--measure)}
+.static-body .meta,.meta{font-size:12.5px; color:var(--ink-3); margin:0 0 20px}
+.meta b{font-weight:500; font-family:var(--num)}
+.guide-card{display:block; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px 4px; text-decoration:none; color:var(--ink)}
+.guide-card b{font-family:var(--serif); font-weight:600}
+.guide-card span{display:block; font-size:13px; color:var(--ink-2); margin-top:4px}
