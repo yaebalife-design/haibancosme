@@ -315,7 +315,8 @@ h2[id]{scroll-margin-top:92px}
 /* ── 読みもの ── */
 .guide-row{display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:22px 26px; text-decoration:none; color:var(--ink); transition:transform .25s, box-shadow .25s}
 .guide-row:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
-.guide-row .gi{width:56px; height:56px; border-radius:50%; background:var(--gold-wash); color:var(--gold-ink); display:flex; align-items:center; justify-content:center; font-family:var(--latin); font-style:italic; font-size:30px}
+.guides{display:grid; gap:12px}
+.guide-row .gi{width:56px; height:56px; border-radius:50%; background:var(--gold-wash); color:var(--gold-ink); display:flex; align-items:center; justify-content:center; font-family:var(--latin); font-style:italic; font-size:24px}
 .guide-row b{font-family:var(--serif); font-weight:600; font-size:17px; display:block}
 .guide-row span.d{display:block; font-size:13px; color:var(--ink-2); margin-top:4px; line-height:1.7}
 .guide-row .arr{font-family:var(--num); color:var(--ink-3); font-size:18px}
@@ -462,6 +463,11 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .minitbl th,.minitbl td{padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
 .minitbl th{font-weight:500; font-size:13px; color:var(--ink-3); white-space:nowrap; width:9em}
 .tblcard{margin:14px 0 6px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:0 8px; overflow:hidden}
+.minitbl.notices{min-width:720px; font-size:13px}
+.minitbl.notices th{width:auto; white-space:nowrap}
+.minitbl.notices thead th{color:var(--ink); font-weight:600; font-family:var(--serif); background:var(--bg-2)}
+.minitbl.notices tbody th a{font-weight:600; text-decoration:none; color:var(--ink)}
+.minitbl.notices tbody th a:hover{color:var(--accent)}
 @media(max-width:560px){ .minitbl th{white-space:normal; width:6.5em; padding:10px 8px 10px 0} .minitbl td{padding:10px 0 10px 8px} }
 
 /* 比較表（PC） */
