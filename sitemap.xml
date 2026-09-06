@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://haibancosme.com/</loc><priority>1.0</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/reading</loc><priority>0.9</priority><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://haibancosme.com/records</loc><priority>0.9</priority><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://haibancosme.com/guide/brand-discontinuation-notices</loc><priority>0.85</priority><lastmod>2026-09-02</lastmod></url>
-  <url><loc>https://haibancosme.com/guide/cosmetics-expiry</loc><priority>0.85</priority><lastmod>2026-09-02</lastmod></url>
-  <url><loc>https://haibancosme.com/guide/shiseido-discontinued-db</loc><priority>0.85</priority><lastmod>2026-09-02</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/brand-discontinuation-notices</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/brand-withdrawal</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/check-when-it-disappeared</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/common-misreadings</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/cosmetics-expiry</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/discontinuation-words</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/how-we-pick-alternatives</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/jan-code</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/partial-color-discontinuation</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://haibancosme.com/guide/shiseido-discontinued-db</loc><priority>0.85</priority><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://haibancosme.com/articles/celvoke-enthrall-gloss</loc><priority>0.8</priority><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://haibancosme.com/articles/celvoke-voluntary-eyes</loc><priority>0.8</priority><lastmod>2026-09-03</lastmod></url>
   <url><loc>https://haibancosme.com/articles/cezanne-lasting-lip-color-n-407-505</loc><priority>0.8</priority><lastmod>2026-09-02</lastmod></url>

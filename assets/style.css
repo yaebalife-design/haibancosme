@@ -312,15 +312,76 @@ h2[id]{scroll-margin-top:92px}
 @media(max-width:940px){ .cats{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media(max-width:480px){ .cats{grid-template-columns:1fr; gap:12px} .catcard .cv{height:60px} }
 
-/* ── 読みもの ── */
-.guide-row{display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:22px 26px; text-decoration:none; color:var(--ink); transition:transform .25s, box-shadow .25s}
-.guide-row:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
-.guides{display:grid; gap:12px}
-.guide-row .gi{width:56px; height:56px; border-radius:50%; background:var(--gold-wash); color:var(--gold-ink); display:flex; align-items:center; justify-content:center; font-family:var(--latin); font-style:italic; font-size:24px}
-.guide-row b{font-family:var(--serif); font-weight:600; font-size:17px; display:block}
-.guide-row span.d{display:block; font-size:13px; color:var(--ink-2); margin-top:4px; line-height:1.7}
-.guide-row .arr{font-family:var(--num); color:var(--ink-3); font-size:18px}
-@media(max-width:700px){ .guide-row{grid-template-columns:1fr; gap:12px; padding:18px} .guide-row .gi{display:none} .guide-row .arr{display:none} }
+/* ── 読みもの: カード（トップ・読みもの索引・記事末尾で共通） ── */
+/* 番号は丸の中に入れず、カード左上のタブラー数字にする（丸＋イタリックだと位置がずれて見えるため 2026-09-06） */
+.rd-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+.rd-card{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:var(--r);
+  padding:22px 24px 20px; text-decoration:none; color:var(--ink); min-width:0; position:relative; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+.rd-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); opacity:0; transition:opacity .25s}
+.rd-card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--line-2)}
+.rd-card:hover::before{opacity:1}
+.rd-no{display:block; font:600 12px/1 var(--num); font-variant-numeric:tabular-nums; letter-spacing:.18em; color:var(--gold-ink); margin-bottom:14px}
+.rd-t{display:block; font-family:var(--serif); font-weight:600; font-size:18px; line-height:1.55; letter-spacing:.01em}
+.rd-d{display:block; font-size:13px; color:var(--ink-2); line-height:1.9; margin-top:10px}
+.rd-m{display:block; margin-top:auto; padding-top:16px; font-size:11.5px; color:var(--ink-3); letter-spacing:.02em}
+.rd-card.featured{grid-column:1/-1; background:var(--dark); border-color:var(--dark); color:var(--on-dark);
+  display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 32px; align-items:start; padding:32px 34px 30px}
+.rd-card.featured::before{background:var(--accent); opacity:1}
+.rd-card.featured .rd-no{grid-row:1/4; align-self:center; font-size:34px; letter-spacing:.02em; color:var(--gold-2); margin:0}
+.rd-card.featured .rd-t{font-size:24px; line-height:1.45; color:#fff}
+.rd-card.featured .rd-d{color:var(--on-dark-2); font-size:14px; margin-top:12px; max-width:52em}
+.rd-card.featured .rd-m{color:var(--on-dark-3); padding-top:14px}
+@media(max-width:940px){ .rd-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:640px){
+  .rd-grid{grid-template-columns:1fr; gap:12px}
+  .rd-card{padding:18px 18px 16px}
+  .rd-card.featured{grid-template-columns:1fr; padding:22px 20px 20px; gap:0}
+  .rd-card.featured .rd-no{grid-row:auto; font-size:24px; margin-bottom:10px}
+  .rd-card.featured .rd-t{font-size:19px}
+}
+
+/* ── 読みもの: 本文 ── */
+.rd-main{max-width:720px}
+.rd-head{padding:26px 0 0}
+.rd-head .eyebrow{display:flex; gap:10px; align-items:baseline; color:var(--gold-ink)}
+.rd-head .eyebrow .latin{font-size:16px; letter-spacing:.06em; text-transform:none}
+.rd-head .eyebrow .num{font-size:12px; letter-spacing:.16em}
+.rd-head h1{font-size:31px; line-height:1.45; letter-spacing:.01em}
+.rd-lead{font-size:16px; line-height:2; color:var(--ink-2); margin:14px 0 0; max-width:40em}
+.rd-head .headmeta{display:flex; gap:8px 20px; align-items:center; flex-wrap:wrap; font-size:13px; color:var(--ink-2); margin:18px 0 0}
+.rd-head .headmeta .num{color:var(--ink-3)}
+@media(min-width:1080px){ .rd-head .headmeta{display:none} }   /* 右レールに同じ情報があるため */
+@media(max-width:700px){ .rd-head h1{font-size:23px} .rd-lead{font-size:15px} .rd-head .headmeta{font-size:12.5px; gap:6px 14px} }
+
+.keypoints{background:var(--dark); color:var(--on-dark); border-radius:18px; padding:26px 30px 24px; margin:26px 0 8px; position:relative; overflow:hidden}
+.keypoints::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg,var(--accent),var(--gold-2))}
+.kp-label{font-size:11.5px; letter-spacing:.16em; color:var(--gold-2); text-transform:uppercase; margin:0 0 14px; font-weight:500}
+.keypoints ol{list-style:none; counter-reset:kp; margin:0; padding:0; display:grid; gap:14px}
+.keypoints li{counter-increment:kp; position:relative; padding-left:38px; font-size:14.5px; line-height:1.95; color:var(--on-dark)}
+.keypoints li::before{content:counter(kp,decimal-leading-zero); position:absolute; left:0; top:.25em;
+  font:600 12px/1 var(--num); font-variant-numeric:tabular-nums; letter-spacing:.1em; color:var(--gold-2)}
+.keypoints li b{color:#fff}
+@media(max-width:700px){ .keypoints{padding:22px 18px 20px; border-radius:14px} .keypoints li{font-size:14px; padding-left:32px} }
+
+.rd-body{font-size:16.5px; line-height:2.05}
+.rd-body h2{margin:64px 0 16px; font-size:23px}
+.rd-body h2 .hn{display:block; font:600 11.5px/1 var(--num); font-variant-numeric:tabular-nums; letter-spacing:.18em;
+  color:var(--gold-ink); margin-bottom:12px}
+.rd-body p{margin:1em 0}
+.rd-body ul,.rd-body ol{margin:1em 0; padding-left:1.5em}
+.rd-body li{margin:.5em 0; line-height:1.95}
+.rd-body .tblcard{margin:20px 0}
+.rd-body .minitbl{font-size:14px}
+.rd-body .caution{margin:20px 0}
+@media(max-width:700px){ .rd-body{font-size:15.5px; line-height:1.95} .rd-body h2{font-size:19.5px; margin:48px 0 14px} }
+
+.rd-others{margin-top:64px; padding-top:8px; border-top:1px solid var(--line)}
+.rd-others h2{margin:32px 0 18px; font-size:20px}
+.rd-others .rd-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rd-others .rd-t{font-size:16px}
+.rd-others .rd-d{font-size:12.5px; line-height:1.8}
+@media(max-width:640px){ .rd-others .rd-grid{grid-template-columns:1fr} }
 
 /* ── 索引ページの頭 ── */
 .pagehead{position:relative; padding:40px 28px 32px; margin:16px -28px 0; border-radius:var(--r);
