@@ -376,7 +376,42 @@ h2[id]{scroll-margin-top:92px}
 .rd-body .caution{margin:20px 0}
 @media(max-width:700px){ .rd-body{font-size:15.5px; line-height:1.95} .rd-body h2{font-size:19.5px; margin:48px 0 14px} }
 
-.rd-others{margin-top:64px; padding-top:8px; border-top:1px solid var(--line)}
+/* 本文冒頭の目次（右レールが出ない幅で表示） */
+.toc-inline{display:none}
+@media(max-width:1079px){
+  .toc-inline{display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px 16px; margin:26px 0 8px}
+  .toc-h{font-size:11.5px; letter-spacing:.16em; color:var(--ink-3); text-transform:uppercase; margin:0 0 8px; font-weight:500}
+  .toc-inline ol{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; list-style:none; margin:0; padding:0}
+  .toc-inline li{margin:0; min-width:0}
+  .toc-inline a{display:flex; gap:10px; align-items:baseline; padding:7px 0; font-size:13.5px; color:var(--ink-2); text-decoration:none; line-height:1.6}
+  .toc-inline a:hover{color:var(--accent)}
+  .toc-inline .tn{flex:0 0 auto; font:600 11px/1.7 var(--num); font-variant-numeric:tabular-nums; letter-spacing:.08em; color:var(--gold-ink)}
+}
+@media(max-width:640px){ .toc-inline ol{grid-template-columns:1fr} .toc-inline{padding:16px 16px 14px} }
+
+/* 右レールの目次: いま読んでいる節 */
+.rail .toc li a.on{color:var(--accent); font-weight:500}
+.rail .toc li a.on::before{color:var(--accent)}
+
+/* 読みものに出てくる記録 */
+.rd-records{margin-top:60px}
+.rd-records h2{font-size:20px; margin:0 0 18px}
+.rd-records .grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+@media(max-width:700px){ .rd-records .grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:420px){ .rd-records .grid{grid-template-columns:1fr} }
+
+/* 前後の読みもの */
+.rd-pn{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:52px 0 0}
+.pn{display:flex; flex-direction:column; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:16px 20px; text-decoration:none; color:var(--ink); transition:transform .25s, box-shadow .25s, border-color .25s}
+.pn:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--line-2)}
+.pn-l{font:500 11px/1 var(--num); letter-spacing:.14em; color:var(--gold-ink)}
+.pn-t{font-family:var(--serif); font-weight:600; font-size:15px; line-height:1.55}
+.pn.next{text-align:right}
+.pn.empty{border:0; background:transparent}
+@media(max-width:640px){ .rd-pn{grid-template-columns:1fr} .pn.next{text-align:left} .pn.empty{display:none} }
+
+.rd-others{margin-top:60px; padding-top:8px; border-top:1px solid var(--line)}
 .rd-others h2{margin:32px 0 18px; font-size:20px}
 .rd-others .rd-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .rd-others .rd-t{font-size:16px}

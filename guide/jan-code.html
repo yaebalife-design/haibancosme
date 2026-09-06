@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&family=Cormorant+Garamond:ital,wght@1,500&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@500;600&display=swap">
-<link rel="stylesheet" href="../assets/style.css?v=20260906b">
+<link rel="stylesheet" href="../assets/style.css?v=20260906c">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="canonical" href="https://haibancosme.com/guide/jan-code">
@@ -31,6 +31,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0R9XJPGRHV');</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "JANコードで商品を見分ける", "description": "同じ商品名でもサイズ違い・色違いは別のJANコードで、価格も別です。通販での取り違えを防ぎ、自分の色が終了の対象かを確かめるための、13桁の数字の使い方をまとめました。", "datePublished": "2026-09-06", "dateModified": "2026-09-06", "image": ["https://haibancosme.com/assets/og/default.png"], "author": {"@type": "Organization", "name": "廃盤コスメ図鑑", "url": "https://haibancosme.com/about"}, "publisher": {"@type": "Organization", "name": "廃盤コスメ図鑑", "logo": {"@type": "ImageObject", "url": "https://haibancosme.com/assets/icon-512.png"}}, "mainEntityOfPage": "https://haibancosme.com/guide/jan-code", "inLanguage": "ja"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://haibancosme.com/"}, {"@type": "ListItem", "position": 2, "name": "読みもの", "item": "https://haibancosme.com/reading"}, {"@type": "ListItem", "position": 3, "name": "JANコードで商品を見分ける", "item": "https://haibancosme.com/guide/jan-code"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "url": "https://haibancosme.com/guide/jan-code", "mainEntity": [{"@type": "Question", "name": "JANコードはどこに書かれていますか？", "acceptedAnswer": {"@type": "Answer", "text": "商品の外箱や容器に印刷されたバーコードの下に、13桁の数字として並んでいます。化粧品では外箱の底面か側面、本体の底にあることが多いです。"}}, {"@type": "Question", "name": "商品番号とJANコードは違うものですか？", "acceptedAnswer": {"@type": "Answer", "text": "違います。商品番号（品番）は商品全体を指すメーカー内の番号で、色やサイズごとには分かれていません。色やサイズまで特定したいときは13桁のJANコードを使います。"}}, {"@type": "Question", "name": "JANコードから製造時期は分かりますか？", "acceptedAnswer": {"@type": "Answer", "text": "分かりません。JANは商品の種類を表す番号で、製造ロットを表すものではありません。製造時期の手がかりになるのは、公式が公表している生産終了の年月です。"}}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -71,6 +72,21 @@
         <li>通販で商品名の表記があいまいなとき、JANで照合すると別サイズ・別色の取り違えを防げます。</li>
       </ol>
     </section>
+    <nav class="toc-inline" aria-labelledby="toc-inline-h">
+      <p class="toc-h" id="toc-inline-h">目次</p>
+      <ol>
+        <li><a href="#what"><span class="tn">01</span>JANコードとは</a></li>
+        <li><a href="#size"><span class="tn">02</span>サイズ違いは別のJAN、別の価格</a></li>
+        <li><a href="#color"><span class="tn">03</span>色番ごとに別のJAN</a></li>
+        <li><a href="#url"><span class="tn">04</span>URLにJANが入っていることがある</a></li>
+        <li><a href="#use"><span class="tn">05</span>読者がJANを使う場面</a></li>
+        <li><a href="#where"><span class="tn">06</span>どこに書かれているか</a></li>
+        <li><a href="#howto"><span class="tn">07</span>通販で照合する手順</a></li>
+        <li><a href="#limits"><span class="tn">08</span>JANで分からないこと</a></li>
+        <li><a href="#faq"><span class="tn" aria-hidden="true">—</span>よくある質問</a></li>
+        <li><a href="#sources"><span class="tn" aria-hidden="true">—</span>この情報の出典</a></li>
+      </ol>
+    </nav>
     <div class="rd-body">
 
     <p>廃盤コスメを探していると、同じ名前で容量が違う商品や、色番の表記がゆれている出品に出会います。
@@ -174,6 +190,14 @@
     ブランドが日本から撤退した商品を海外サイトで見つけたときは、同じ商品と決めつけないほうが安全です。</p>
     <p>製造からの時間が気になる場合は、<a href="cosmetics-expiry.html">旧型在庫を買う前に：化粧品の使用期限の話</a>もあわせてご覧ください。</p>
 
+    <h2 id="faq">よくある質問</h2>
+    <details class="faq"><summary>JANコードはどこに書かれていますか？</summary>
+      <p>商品の外箱や容器に印刷されたバーコードの下に、13桁の数字として並んでいます。化粧品では外箱の底面か側面、本体の底にあることが多いです。</p></details>
+    <details class="faq"><summary>商品番号とJANコードは違うものですか？</summary>
+      <p>違います。商品番号（品番）は商品全体を指すメーカー内の番号で、色やサイズごとには分かれていません。色やサイズまで特定したいときは13桁のJANコードを使います。</p></details>
+    <details class="faq"><summary>JANコードから製造時期は分かりますか？</summary>
+      <p>分かりません。JANは商品の種類を表す番号で、製造ロットを表すものではありません。製造時期の手がかりになるのは、公式が公表している生産終了の年月です。</p></details>
+
     <h2 id="sources">この情報の出典</h2>
     <ol class="sources">
       <li><span class="dom">shiseido.co.jp</span><a href="https://www.shiseido.co.jp/scp/products/end/index.php" rel="noopener" target="_blank">資生堂公式「生産終了品のご案内」<span class="visually-hidden">（別タブで開く）</span></a><span class="srcnote">掲載項目（商品名・色番・終了年月・内容量・JANコード・発売日）、「＊生産終了から2年間掲載いたします。」、「＊「代わりにおすすめの商品」については、詳しくは店頭、または「資生堂お客さま窓口」にご相談ください。」の文言の確認／確認日 2026-09-06</span></li>
@@ -184,6 +208,50 @@
     <p class="soft">当サイトは各メーカーとは無関係の個人サイトです。掲載内容の誤り・訂正のご依頼は
     <a href="../contact.html">お問い合わせフォーム</a>までお願いします。</p>
     </div>
+    <section class="rd-records" aria-labelledby="rd-rec-h">
+      <h2 id="rd-rec-h">この読みものに出てくる記録</h2>
+      <div class="grid">
+    <a class="card" href="../articles/shiseido-colorgel-lipbalm.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ カラージェル リップバーム(15色中5色) SHISEIDO カラージェル リップバーム 色番 103 105 101 114 115 Peony Poppy SHISEIDO カラージェル リップバーム(残る10色) SHISEIDO テクノサテン ジェル リップスティック SHISEIDO ラッカーインク リップシャイン 101 Ginkgo 103 Peony 105 Poppy 114 Lilac 115 Azalea" data-status="partial" data-buy="buy" data-cat="lip" data-end="202512" data-upd="2026-09-06">
+      <span class="card-visual has-sw" style="--c1:#F5B693;--c2:#F1A1AD" aria-hidden="true"><span class="cat">Lip</span><span class="mono" aria-hidden="true">SHISEIDO</span><span class="sw"><i style="background:#F5B693"></i><i style="background:#F1A1AD"></i><i style="background:#E44160"></i><i style="background:#A15A95"></i><i style="background:#D0006F"></i></span></span>
+      <span class="card-body">
+        <span class="visually-hidden">リップ：</span>
+        <span class="card-brand">SHISEIDO</span>
+        <span class="card-name">カラージェル リップバーム（15色中5色）</span>
+        <span class="card-meta"><span class="chip st-partial">一部の色が終了</span><span class="num">2025.12 一部色終了</span></span>
+        <span class="card-stock"><b>公式サイト</b>　色によって異なる</span>
+        <span class="card-alt"><small>代わりの筆頭・当サイト選定</small><b>SHISEIDO カラージェル リップバーム（残る10色）</b><span class="pr"><em>3,850<i>円</i></em><span class="old">廃盤品 3,850円</span></span></span>
+      </span>
+    </a>
+    <a class="card" href="../articles/shiseido-brow-inktrio-01-blonde.html" data-kw="SHISEIDO SHISEIDO 資生堂 しせいどう シセイドウ ブロウインクトリオ 01 Blonde SHISEIDO ブロウインクトリオ 01 Blonde ブロンド アイブロウ レフィル SHISEIDO ブロウインクトリオ(続く3色 02 Taupe・03 Deep Brown・04 Ebony) SUQQU スムース アイブロウ ペンシル SUQQU 3D コントロール アイブロウ Blonde/01(2024年12月 生産終了) Taupe/02(現行) Deep Brown/03(現行) Ebony/04(現行)" data-status="partial" data-buy="buy" data-cat="eye" data-end="202412" data-upd="2026-09-06">
+      <span class="card-visual has-sw" style="--c1:#C59667;--c2:#94724A" aria-hidden="true"><span class="cat">Eye & Brow</span><span class="mono" aria-hidden="true">SHISEIDO</span><span class="sw"><i style="background:#C59667"></i><i style="background:#94724A"></i><i style="background:#6F5D56"></i><i style="background:#5E4C3D"></i></span></span>
+      <span class="card-body">
+        <span class="visually-hidden">アイ・眉：</span>
+        <span class="card-brand">SHISEIDO</span>
+        <span class="card-name">ブロウインクトリオ 01 Blonde</span>
+        <span class="card-meta"><span class="chip st-partial">一部の色が終了</span><span class="num">2024.12 01が終了</span></span>
+        <span class="card-stock"><b>公式サイト</b>　色によって異なる</span>
+        <span class="card-alt"><small>代わりの筆頭・当サイト選定</small><b>SHISEIDO ブロウインクトリオ 02・03・04</b><span class="pr"><em>3,300<i>円</i></em><span class="old">廃盤品 3,300円</span></span></span>
+      </span>
+    </a>
+    <a class="card" href="../articles/cledepeau-rouge-a-levres-brillant.html" data-kw="クレ・ド・ポー ボーテ Clé de Peau Beauté クレ・ド・ポー ボーテ クレドポー くれどぽー CPB ルージュアレーブル ブリアン(終売した214・216) クレ・ド・ポー ボーテ ルージュアレーブル ブリアン 214 216 色番 口紅 Red-Orange Rebel Always-Right Red クレ・ド・ポー ボーテ ルージュアレーブル ブリアン(現行の色) クレ・ド・ポー ボーテ ルージュアレーブル(無印) クレ・ド・ポー ボーテ ル・ルージュプレシュー" data-status="partial" data-buy="buy" data-cat="lip" data-end="202603" data-upd="2026-09-06">
+      <span class="card-visual" style="--g1:#C9485F;--g2:#6E1A2E;--ga:120deg;--gm:20%;--cat-fg:rgba(255,255,255,.9)" aria-hidden="true"><span class="cat">Lip</span><span class="mono" aria-hidden="true">CDP</span></span>
+      <span class="card-body">
+        <span class="visually-hidden">リップ：</span>
+        <span class="card-brand">Clé de Peau Beauté</span>
+        <span class="card-name">ルージュアレーブル ブリアン（終売した214・216）</span>
+        <span class="card-meta"><span class="chip st-partial">一部の色が終了</span><span class="num">2026.3 2色が終売</span></span>
+        <span class="card-stock"><b>公式サイト</b>　公式ページのカラー欄に掲載（在庫表示なし）・公式ストアは8色のみ</span>
+        <span class="card-alt"><small>代わりの筆頭・当サイト選定</small><b>クレ・ド・ポー ボーテ ルージュアレーブル ブリアン（現行の8色）</b><span class="pr"><em>7,150<i>円</i></em><span class="old">廃盤品 7,150円</span></span></span>
+      </span>
+    </a>
+      </div>
+      <p class="tnote">色チップは公式色名にもとづくイメージです（実物の色とは異なります）。</p>
+      <p class="soft"><a href="../records.html">記録をすべて見る（44件）</a></p>
+    </section>
+    <nav class="rd-pn" aria-label="前後の読みもの">
+      <a class="pn prev" href="../guide/check-when-it-disappeared.html"><span class="pn-l">前の読みもの</span><span class="pn-t">公式サイトから消えた時期を確かめる方法</span></a>
+      <a class="pn next" href="../guide/how-we-pick-alternatives.html"><span class="pn-l">次の読みもの</span><span class="pn-t">当サイトが「代わりの現行品」を選ぶ基準</span></a>
+    </nav>
     <section class="rd-others" aria-labelledby="others-h">
       <h2 id="others-h">ほかの読みもの</h2>
       <div class="rd-grid">
@@ -224,6 +292,7 @@
           <li><a href="#where">どこに書かれているか</a></li>
           <li><a href="#howto">通販で照合する手順</a></li>
           <li><a href="#limits">JANで分からないこと</a></li>
+          <li><a href="#faq">よくある質問</a></li>
           <li><a href="#sources">この情報の出典</a></li>
       </ol>
     </nav>
@@ -234,6 +303,26 @@
     </div>
   </aside>
   </div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail .toc a[href^="#"]'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ var el = document.getElementById(a.getAttribute('href').slice(1)); if(el) map[el.id] = a; });
+  var seen = {};
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ seen[e.target.id] = e.isIntersecting ? e.boundingClientRect.top : null; });
+    var cur = null;
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.getBoundingClientRect().top <= 160) cur = id;
+    });
+    links.forEach(function(a){ a.classList.remove('on'); a.removeAttribute('aria-current'); });
+    if(cur && map[cur]){ map[cur].classList.add('on'); map[cur].setAttribute('aria-current','true'); }
+  }, {rootMargin: '-140px 0px -70% 0px', threshold: [0, 1]});
+  Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if(el) io.observe(el); });
+})();
+</script>
 </main>
 <footer class="site">
   <div class="foot-inner">
