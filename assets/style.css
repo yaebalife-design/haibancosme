@@ -554,6 +554,7 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .buybtn:hover{transform:translateY(-2px)}
 .buybtn.amz{background:var(--ink)} .buybtn.amz:hover{background:var(--dark-3)}
 .buybtn.rkt{background:var(--accent)} .buybtn.rkt:hover{background:var(--accent-2)}
+.buybtn.yah{background:var(--gold-ink)} .buybtn.yah:hover{background:#6A5430}
 .buybtn small{font-weight:400; font-size:12px; opacity:.85}
 @media(max-width:560px){ .buybtn{width:100%; align-items:center} }
 .shoplinks{display:inline-flex; gap:10px; align-items:center; flex-wrap:wrap}
@@ -561,6 +562,7 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .shoplink:hover{border-color:var(--ink)}
 .shoplink.amz::before{content:"A"; font:600 11px/1 var(--num); background:var(--ink); color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; margin-right:6px}
 .shoplink.rkt::before{content:"R"; font:600 11px/1 var(--num); background:var(--accent); color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; margin-right:6px}
+.shoplink.yah::before{content:"Y"; font:600 11px/1 var(--num); background:var(--gold-ink); color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; margin-right:6px}
 
 /* 旧テーブル（固定ページで使用） */
 .minitbl{border-collapse:collapse; width:100%; font-size:14px}
