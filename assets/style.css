@@ -558,7 +558,8 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .buybtn small{font-weight:400; font-size:12px; opacity:.85}
 @media(max-width:560px){ .buybtn{width:100%; align-items:center} }
 .shoplinks{display:inline-flex; gap:10px; align-items:center; flex-wrap:wrap}
-.shoplink{font-weight:500; text-decoration:none; font-size:13px; border:1px solid var(--line-2); border-radius:999px; padding:6px 12px; color:var(--ink)}
+/* 比較表のセルは overflow-wrap:anywhere なので、打ち消さないと「Amazonで見/る」と語の途中で折れる */
+.shoplink{font-weight:500; text-decoration:none; font-size:13px; border:1px solid var(--line-2); border-radius:999px; padding:6px 12px; color:var(--ink); white-space:nowrap; overflow-wrap:normal; word-break:keep-all}
 .shoplink:hover{border-color:var(--ink)}
 .shoplink.amz::before{content:"A"; font:600 11px/1 var(--num); background:var(--ink); color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; margin-right:6px}
 .shoplink.rkt::before{content:"R"; font:600 11px/1 var(--num); background:var(--accent); color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; margin-right:6px}
@@ -577,7 +578,8 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 @media(max-width:560px){ .minitbl th{white-space:normal; width:6.5em; padding:10px 8px 10px 0} .minitbl td{padding:10px 0 10px 8px} }
 
 /* 比較表（PC） */
-.tblwrap{margin:18px 0 8px; border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--card); box-shadow:0 1px 0 rgba(23,18,15,.03)}
+/* overflow:hidden だと表がはみ出たとき黙って切れる。狭い画面では横スクロールさせる */
+.tblwrap{margin:18px 0 8px; border:1px solid var(--line); border-radius:var(--r); overflow-x:auto; overflow-y:hidden; background:var(--card); box-shadow:0 1px 0 rgba(23,18,15,.03)}
 table.cmp{table-layout:fixed; border-collapse:separate; border-spacing:0; width:100%; font-size:13.5px; line-height:1.6}
 .cmp thead th:first-child{width:5.6em}
 .cmp thead th.pick,.cmp tbody td.pick{background:var(--gold-wash)}
@@ -602,7 +604,9 @@ table.cmp{table-layout:fixed; border-collapse:separate; border-spacing:0; width:
 .cmp tr.shoprow th,.cmp tr.shoprow td{border-top:1px solid var(--line-2); background:var(--bg)}
 .cmp tr.officialrow td{padding-top:6px}
 .cmp th .ad{display:inline-block; font-size:11px; font-weight:500; letter-spacing:.06em; color:var(--ink-3); border:1px solid var(--line); border-radius:3px; padding:0 5px; margin-left:6px}
-.cmp td.shop .shoplinks{display:flex; flex-direction:column; align-items:flex-start; gap:6px; font-size:12.5px}
+/* 3店舗ぶんが縦に並ぶ。幅をそろえて左端を合わせ、余白を詰めて1行に収める */
+.cmp td.shop .shoplinks{display:flex; flex-direction:column; align-items:stretch; gap:6px; font-size:12.5px}
+.cmp td.shop .shoplink{padding:6px 10px; text-align:left}
 .criteria{font-size:13.5px; color:var(--ink-2); background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 16px; margin:14px 0 0}
 
 /* 比較（SPカード） */
