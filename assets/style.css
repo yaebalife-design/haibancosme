@@ -83,7 +83,6 @@ nav.gnav a[aria-current]{color:var(--on-dark); border-bottom-color:var(--gold-2)
 /* 1段組みはメニュー7項目（約630px）＋ロゴ＋検索が収まる幅だけ。940pxで切り替えていたら
    941〜1100pxで検索欄が潰れ「検索」が縦書きになった（2026-09-26 社長指摘）→ 2段組みを1100pxまで */
 @media(max-width:1100px){
-  nav.gnav{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(90deg,#000 88%,transparent)}
   .hd{grid-template-columns:auto minmax(0,1fr); height:auto; gap:8px 12px; padding-top:12px}
   .gsearch{grid-column:2; justify-self:end; max-width:300px; height:38px}
   .gsearch button{padding:0 12px}
@@ -92,7 +91,9 @@ nav.gnav a[aria-current]{color:var(--on-dark); border-bottom-color:var(--gold-2)
   nav.gnav a{white-space:nowrap; padding:8px 9px 11px}
   header.site{position:static}
 }
-@media(max-width:700px){ nav.gnav{margin:0 -18px; padding:2px 18px 0} .brandmark{font-size:19px} .gsearch{max-width:230px} }
+@media(min-width:701px) and (max-width:1100px){ nav.gnav{justify-content:center; gap:10px} }   /* 左寄せは右が空き、均等配置は散らばった→中央 */
+@media(max-width:700px){ nav.gnav{margin:0 -18px; padding:2px 18px 0; -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .brandmark{font-size:19px} .gsearch{max-width:230px} }
 @media(max-width:400px){ .gsearch{max-width:160px} .gsearch input{padding:0 12px} }
 
 /* ── 見出し ── */
@@ -101,7 +102,7 @@ h2{font-family:var(--serif); font-weight:600; font-size:24px; line-height:1.4; m
 h3{font-family:var(--serif); font-weight:600; font-size:18px; line-height:1.5; margin:32px 0 8px}
 h2 small{font-family:var(--num); font-weight:500; font-size:13px; color:var(--ink-3); margin-left:10px; letter-spacing:.06em}
 h2[id]{scroll-margin-top:92px}
-@media(min-width:1101px){ h2[id]{scroll-margin-top:150px} }   /* sticky ヘッダー＋フィルタ行／ジャンプ帯の下に着地させる（ヘッダーが sticky なのは1101px〜） */
+@media(min-width:1101px){ h2[id]{scroll-margin-top:150px} main.withrail h2[id], main.doc h2[id]{scroll-margin-top:92px} }   /* sticky ヘッダー＋フィルタ行／ジャンプ帯の下に着地させる（ヘッダーが sticky なのは1101px〜） */
 .sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:80px 0 22px}
 .sec-head h2{margin:0}
 .sec-head .eyebrow{margin-bottom:6px}
@@ -112,7 +113,8 @@ h2[id]{scroll-margin-top:92px}
   h2{font-size:20px; margin:52px 0 14px} h2[id]{scroll-margin-top:76px}
   .sec-head{margin:56px 0 16px}
 }
-@media(min-width:701px){ h1{word-break:keep-all; overflow-wrap:anywhere} }
+h1{word-break:auto-phrase}
+@media(min-width:701px){ h1{word-break:keep-all; word-break:auto-phrase; overflow-wrap:anywhere} }   /* auto-phrase＝文節で改行（未対応ブラウザは keep-all） */
 
 /* ── チップ（状態） ── */
 .chip{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:500; line-height:1; padding:6px 10px; border-radius:999px;
@@ -158,7 +160,10 @@ h2[id]{scroll-margin-top:92px}
 .chiprow{display:none}
 @media(max-width:940px){
   .hero-in{grid-template-columns:1fr; gap:36px; padding:44px 28px 56px}
-  .hero-art{max-width:520px}
+  .hero-art{display:none}   /* 色見本は右に空きが出て高さも1画面を超えた→SPと同じ色チップ1行に */
+  .chiprow{display:flex; gap:8px; align-items:center; margin:18px 0 0; flex-wrap:wrap}
+  .chiprow i{width:30px; height:30px; border-radius:50%; display:block; box-shadow:inset 0 1px 0 rgba(255,255,255,.35), inset 0 -6px 10px rgba(0,0,0,.2)}
+  .chiprow span{font-size:11.5px; color:var(--on-dark-2); letter-spacing:.04em; flex-basis:100%}
   .mosaic{transform:none}
 }
 @media(max-width:700px){
@@ -182,13 +187,16 @@ h2[id]{scroll-margin-top:92px}
 .filters .lbl{font-size:11px; color:var(--ink-3); margin-right:2px; flex:0 0 auto; white-space:nowrap; letter-spacing:.08em}
 .fchip{white-space:nowrap}
 .filters .fchip{font-size:12.5px; padding:6px 11px}
-@media(min-width:941px) and (max-width:1320px){ .filters .lbl{display:none} }   /* 1行に収める（ラベルは role=group の aria-label で残る） */
+/* 701px以上は折り返して全部見せる（2026-09-26 点検: 1行固定で右端の「公式ページなし」が切れ、選択肢があること自体に気づけなかった） */
+@media(min-width:701px){ .filters{flex-wrap:wrap; overflow:visible; row-gap:10px; column-gap:24px} .filters .grp{flex-wrap:wrap; row-gap:6px}
+  .filters .grp + .grp{padding-left:0; border-left:0} }   /* 2段目が区切り線つきで字下げされて左端が揃わなかった */
 .fchip{font-size:13px; font-weight:500; color:var(--ink-2); background:var(--card); border:1px solid var(--line-2); border-radius:999px;
   padding:7px 13px; text-decoration:none; cursor:pointer; line-height:1.2; font-family:inherit; transition:background .15s, color .15s, border-color .15s}
 .fchip i{font-style:normal; font-family:var(--num); font-size:12px; color:var(--ink-3); margin-left:5px}
 .fchip:hover{border-color:var(--ink)}
 .fchip.on,.fchip[aria-current]{background:var(--ink); color:#fff; border-color:var(--ink)}
 .fchip.on i,.fchip[aria-current] i{color:var(--gold-2)}
+main.nf .filters{position:static}   /* 404は索引の入口だけなので追従させない */
 @media(max-width:1100px){ .filters{top:0} }   /* ヘッダーが sticky でない幅は画面の上端に付ける */
 @media(max-width:940px){ .filters{position:static; margin:0 -28px; padding:10px 28px; gap:8px 12px} }
 @media(max-width:700px){
@@ -200,6 +208,8 @@ h2[id]{scroll-margin-top:92px}
 .list-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:40px 0 20px}
 .list-head h2{margin:0}
 #reclist{min-height:60vh}
+@media(min-width:941px){ .list-head h2[id]{scroll-margin-top:118px} }   /* 2段の絞り込み行（最大96px）の下に着地 */
+@media(min-width:1101px){ .list-head h2[id]{scroll-margin-top:186px} }  /* sticky ヘッダー69px＋絞り込み行96px＋余白 */
 @media(max-width:940px){ .list-head h2{scroll-margin-top:16px} }
 .sortsw{display:inline-flex; gap:0; font-size:12.5px; border:1px solid var(--line-2); border-radius:999px; overflow:hidden; background:var(--card)}
 .sortsw button{font:inherit; font-size:12.5px; border:0; background:transparent; color:var(--ink-2); padding:7px 14px; cursor:pointer}
@@ -240,7 +250,7 @@ h2[id]{scroll-margin-top:92px}
   background:rgba(247,243,236,.82); padding:4px 6px; border-radius:4px; pointer-events:none}
 .card-body{padding:16px 18px 18px; display:flex; flex-direction:column; gap:8px; flex:1}
 .card-brand{font:500 11px/1 var(--num); letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3)}
-.card-name{font-family:var(--serif); font-weight:600; font-size:17.5px; line-height:1.45}
+.card-name{font-family:var(--serif); font-weight:600; font-size:17.5px; line-height:1.45; word-break:auto-phrase; text-wrap:pretty}
 .card-meta{display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2)}
 .card-meta .num{color:var(--ink-2)}
 .card-stock{font-size:12.5px; color:var(--ink-2); line-height:1.6}
@@ -279,7 +289,7 @@ h2[id]{scroll-margin-top:92px}
 @media(max-width:560px){ .recent{grid-template-columns:1fr; gap:10px} .recent a{padding:14px 16px} .recent time b{font-size:19px} }
 
 /* ── ブランドの壁 ── */
-.brandgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+.brandgrid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
 .brandgrid a{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 20px 16px; text-decoration:none; color:var(--ink); min-height:128px; transition:transform .25s, box-shadow .25s}
 .brandgrid a:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
 .brandgrid .br{display:block; font-family:var(--latin); font-style:italic; font-weight:500; font-size:24px; line-height:1.05; color:var(--ink); letter-spacing:.01em}
@@ -287,7 +297,7 @@ h2[id]{scroll-margin-top:92px}
 .brandgrid .bc{display:flex; justify-content:space-between; align-items:baseline; gap:8px; font-size:12px; color:var(--ink-3); margin-top:auto; padding-top:14px; border-top:1px solid var(--line); white-space:nowrap}
 .brandgrid .bc em{font:600 15px var(--num); font-style:normal; color:var(--ink)}
 .brandgrid .bc .num{color:var(--ink-2)}
-@media(max-width:940px){ .brandgrid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:940px){ .brandgrid{grid-template-columns:repeat(3,minmax(0,1fr))} }
 @media(max-width:560px){ .brandgrid{grid-template-columns:repeat(2,1fr); gap:10px} .brandgrid a{padding:16px 14px 12px; min-height:110px} .brandgrid .br{font-size:20px} .brandgrid .bc{font-size:11.5px} .brandgrid .bc .lbl{display:none} }
 
 /* ── ブランドの壁（トップ上部のコンパクト版） ── */
@@ -295,11 +305,17 @@ h2[id]{scroll-margin-top:92px}
 .brandgrid.compact{grid-template-columns:repeat(7,1fr); gap:10px}
 .brandgrid.compact a{min-height:0; padding:14px 14px 12px; border-radius:12px}
 .brandgrid.compact .br{font-size:19px}
-.brandgrid.compact .bn{font-size:11.5px; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.brandgrid.compact .bc{padding-top:10px; margin-top:10px; font-size:11.5px}
+.brandgrid.compact .bn{font-size:11.5px; margin-top:4px; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.brandgrid.compact .br{margin-bottom:10px} .brandgrid.compact .br + .bn{margin-top:-6px}
+.brandgrid.compact .bc{padding-top:10px; margin-top:auto; font-size:11.5px}
 .brandgrid.compact .bc em{font-size:14px}
-@media(max-width:1100px){ .brandgrid.compact{grid-template-columns:repeat(5,1fr)} }
-@media(max-width:940px){ .brandgrid.compact{grid-template-columns:repeat(4,1fr)} }
+/* 14ブランド＝7列×2行。5列・4列だと最終行が欠けた → 941〜1100pxも7列（文字を詰める）、940px以下は横スクロール */
+@media(max-width:1100px){ .brandgrid.compact{gap:8px} .brandgrid.compact a{padding:12px 10px 10px} .brandgrid.compact .br{font-size:16px} }
+@media(max-width:940px){
+  .brandgrid.compact{display:flex; overflow-x:auto; margin:0 -28px; padding:2px 28px 8px; scrollbar-width:none}
+  .brandgrid.compact::-webkit-scrollbar{display:none}
+  .brandgrid.compact a{flex:0 0 148px}
+}
 @media(max-width:700px){
   .brandgrid.compact{display:flex; overflow-x:auto; gap:8px; margin:0 -18px; padding:2px 18px 8px; scrollbar-width:none; -webkit-overflow-scrolling:touch}
   .brandgrid.compact::-webkit-scrollbar{display:none}
@@ -334,7 +350,7 @@ h2[id]{scroll-margin-top:92px}
 .rd-card:hover{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--line-2)}
 .rd-card:hover::before{opacity:1}
 .rd-no{display:block; font:600 12px/1 var(--num); font-variant-numeric:tabular-nums; letter-spacing:.18em; color:var(--gold-ink); margin-bottom:14px}
-.rd-t{display:block; font-family:var(--serif); font-weight:600; font-size:18px; line-height:1.55; letter-spacing:.01em}
+.rd-t{display:block; font-family:var(--serif); font-weight:600; font-size:18px; line-height:1.55; letter-spacing:.01em; word-break:auto-phrase; text-wrap:pretty}
 .rd-d{display:block; font-size:13px; color:var(--ink-2); line-height:1.9; margin-top:10px}
 .rd-m{display:block; margin-top:auto; padding-top:16px; font-size:11.5px; color:var(--ink-3); letter-spacing:.02em}
 .rd-card.featured{grid-column:1/-1; background:var(--dark); border-color:var(--dark); color:var(--on-dark);
@@ -443,8 +459,9 @@ h2[id]{scroll-margin-top:92px}
   background:linear-gradient(135deg, color-mix(in srgb, var(--g1,var(--gold)) 22%, var(--bg-2)), var(--bg) 70%)}
 .pagehead .eyebrow.latin{color:var(--gold-ink)}
 .pagehead .intro{font-size:15px; color:var(--ink-2); max-width:46em; margin:8px 0 0}
+@media(max-width:1160px){ .pagehead{border-radius:0} }   /* 左右の負マージンで画面端に接する幅は角丸なし */
 @media(max-width:700px){ .pagehead{padding:28px 18px 24px; margin:10px -18px 0; border-radius:0} }
-.crumb{font-size:12.5px; color:var(--ink-3); margin:18px 0 0; display:flex; gap:6px; flex-wrap:wrap}
+.crumb{font-size:12.5px; color:var(--ink-3); margin:18px 0 0; display:flex; gap:6px; flex-wrap:wrap; align-items:baseline}
 .crumb a{color:var(--ink-3); text-decoration:none; padding:4px 0}
 .crumb a:hover{color:var(--accent); text-decoration:underline}
 .crumb b{font-weight:400; color:var(--ink-3)}
@@ -453,10 +470,23 @@ h2[id]{scroll-margin-top:92px}
 /* ── 記事: 2カラム（≥1080px は右レール固定） ── */
 .art{display:grid; grid-template-columns:minmax(0,1fr); gap:0}
 .art-main{min-width:0; max-width:var(--measure)}
+/* 本文の列を中央に置く（2026-09-26 社長「なんで右が空いてるの」）
+   ・doc: 本文1列のページはどの幅でも中央
+   ・withrail: 右レールが消える幅（〜1079px）では列を中央に。パンくず・PR表記も同じ幅にそろえる */
+main.doc > .crumb, main.doc > .measure{max-width:var(--measure); margin-left:auto; margin-right:auto}
+@media(max-width:1079px){
+  main.withrail > .crumb, main.withrail > .prnote, main.withrail .art-main{max-width:var(--measure); margin-left:auto; margin-right:auto}
+  /* グリッドの子に左右autoを付けると幅が中身なりに広がり、SPで横スクロールが出た → 幅は列いっぱいに固定 */
+  main.withrail .art-main{width:100%}
+}
 .rail{display:none}
 @media(min-width:1080px){
   .art{grid-template-columns:minmax(0,var(--measure)) 280px; gap:72px; align-items:start}
   .rail{display:block; position:sticky; top:92px}
+  .art{justify-content:space-between}   /* 右レールの右端をヘッダーの右端にそろえる */
+}
+@media(min-width:1080px) and (max-width:1100px){
+  .rail{top:24px}   /* この幅はヘッダーが sticky でない */
 }
 .rail .toc{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px}
 .rail .toc b{display:block; font-size:11.5px; letter-spacing:.14em; color:var(--ink-3); font-weight:500; margin-bottom:8px; text-transform:uppercase}
@@ -508,16 +538,16 @@ h2[id]{scroll-margin-top:92px}
 .facts > div:first-child{border-left:0; padding-left:0}
 .facts > div.hl{background:linear-gradient(180deg,rgba(166,32,58,.34),rgba(166,32,58,.10)); border-radius:14px; border-left:0; margin:10px 0 10px 8px; padding:16px 22px 16px;
   box-shadow:inset 0 0 0 1px rgba(201,174,122,.4)}
-.facts dt{font-size:11.5px; color:var(--on-dark-2); letter-spacing:.1em; margin:0 0 8px; line-height:1.4}
+.facts dt{word-break:auto-phrase; font-size:11.5px; color:var(--on-dark-2); letter-spacing:.1em; margin:0 0 8px; line-height:1.4}
 .facts .hl dt{color:var(--gold-2)}
 .facts dd{margin:0; font-size:14px; line-height:1.55; color:var(--on-dark)}
 .facts em{font:600 var(--price-l)/1.05 var(--num); font-style:normal; color:#fff; letter-spacing:-.01em}
 .facts .hl em{font-size:32px}
 .facts small{font-size:12px; color:var(--on-dark-2); margin-left:3px}
 .facts .diff{display:block; font:500 12px/1.5 var(--num); color:var(--gold-2); margin-top:4px}
-.facts .diff.note{font:400 11.5px/1.5 var(--sans); color:var(--on-dark-2)}
+.facts .diff.note{font:400 11.5px/1.5 var(--sans); color:var(--on-dark-2); word-break:auto-phrase}
 .facts .alt-sub{display:block; font-size:12px; color:var(--on-dark-2); margin-top:4px}
-.facts .alt-name{display:block; font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.45; margin-bottom:8px; color:#fff}
+.facts .alt-name{display:block; font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.45; margin-bottom:8px; color:#fff; word-break:auto-phrase; text-wrap:pretty}
 .facts .alt-go{margin-top:12px}
 .facts .alt-go .btn{min-height:38px}
 .answer ul{margin:18px 0 0; padding-left:0; list-style:none}
@@ -549,7 +579,7 @@ h2[id]{scroll-margin-top:92px}
 .stickycta{display:none}
 @media(max-width:1079px){
   body:has(.stickycta) footer.site{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
-  .stickycta{display:flex; gap:8px; position:fixed; left:0; right:0; bottom:0; z-index:25; background:var(--dark); padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  .stickycta{display:flex; gap:8px; position:fixed; left:0; right:0; bottom:0; z-index:25; background:var(--dark); padding:8px max(12px, calc((100% - 720px) / 2)) calc(8px + env(safe-area-inset-bottom));
     box-shadow:0 -10px 30px -18px rgba(0,0,0,.6)}
   .stickycta .btn{flex:1 1 0; min-height:46px; font-size:13.5px; padding:0 12px}
 }
@@ -572,14 +602,17 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .buynote{font-size:13px; color:var(--ink-3); margin:14px 0 8px}
 .caution{background:var(--warn-wash); border-radius:12px; padding:14px 18px; font-size:13px; color:var(--warn); line-height:1.75; margin:12px 0 0; border-left:3px solid #DCC08A}
 .caution a{color:var(--warn)}
-.buyrow{display:flex; gap:12px; flex-wrap:wrap; margin:16px 0}
+.buyrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin:16px 0}   /* 「2つ＋1つ」で右半分が空いた→等幅で並べる */
+.buyrow{position:relative} .buyrow > img{position:absolute; left:0; top:0; width:1px; height:1px}   /* もしもの計測用1px画像をグリッドの升目に数えない */
+.buyrow .buybtn{width:100%}
 .buybtn{font-weight:700; font-size:14.5px; border-radius:14px; min-height:56px; padding:8px 24px; border:none; cursor:pointer; color:#fff; background:var(--ink);
   display:inline-flex; flex-direction:column; justify-content:center; align-items:flex-start; text-decoration:none; transition:transform .18s, background .18s}
 .buybtn:hover{transform:translateY(-2px)}
 .buybtn.amz{background:var(--ink)} .buybtn.amz:hover{background:var(--dark-3)}
 .buybtn.rkt{background:var(--accent)} .buybtn.rkt:hover{background:var(--accent-2)}
 .buybtn.yah{background:var(--gold-ink)} .buybtn.yah:hover{background:#6A5430}
-.buybtn small{font-weight:400; font-size:12px; opacity:.85}
+.buybtn small{font-weight:400; font-size:12px; opacity:.85; word-break:auto-phrase}
+@media(max-width:620px){ .buyrow{grid-template-columns:1fr} }   /* スマホは縦1列（2つ＋1つにならないように） */
 @media(max-width:560px){ .buybtn{width:100%; align-items:center} }
 .shoplinks{display:inline-flex; gap:10px; align-items:center; flex-wrap:wrap}
 /* 比較表のセルは overflow-wrap:anywhere なので、打ち消さないと「Amazonで見/る」と語の途中で折れる */
@@ -594,7 +627,7 @@ dl.rows dd{margin:0; font-size:15px; line-height:1.75}
 .minitbl th,.minitbl td{padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
 .minitbl th{font-weight:500; font-size:13px; color:var(--ink-3); white-space:nowrap; width:9em}
 .tblcard{margin:14px 0 6px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:0 8px; overflow:hidden}
-.minitbl.notices{min-width:720px; font-size:13px}
+.minitbl.notices{min-width:640px; font-size:13px}   /* 720pxだと本文幅718pxに、680pxでも1080〜1100pxで最大26pxはみ出した */
 .minitbl.notices th{width:auto; white-space:nowrap}
 .minitbl.notices thead th{color:var(--ink); font-weight:600; font-family:var(--serif); background:var(--bg-2)}
 .minitbl.notices tbody th a{font-weight:600; text-decoration:none; color:var(--ink)}
@@ -609,8 +642,8 @@ table.cmp{table-layout:fixed; border-collapse:separate; border-spacing:0; width:
 .cmp thead th.pick,.cmp tbody td.pick{background:var(--gold-wash)}
 .cmp thead th.pick{border-top:3px solid var(--gold)}
 .cmp thead th.pick .tag{color:var(--gold-ink)}
-.cmp th,.cmp td{padding:13px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; background:var(--card); overflow-wrap:anywhere}
-.cmp thead th{font-size:14px; font-weight:600; color:var(--ink); background:var(--bg-2); border-bottom:1px solid var(--line-2); vertical-align:bottom; font-family:var(--serif); padding-top:18px}
+.cmp th,.cmp td{padding:13px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; background:var(--card); overflow-wrap:anywhere; word-break:auto-phrase}
+.cmp thead th{font-size:13px; letter-spacing:0; font-weight:600; color:var(--ink); background:var(--bg-2); border-bottom:1px solid var(--line-2); vertical-align:bottom; font-family:var(--serif); padding-top:18px}
 .cmp thead th .b{display:block; font-family:var(--latin); font-style:italic; font-weight:500; font-size:14px; letter-spacing:.03em; color:var(--ink-2); margin-top:5px}
 .cmp thead th .tag{display:block; font:500 11px/1.4 var(--sans); letter-spacing:.04em; color:var(--accent); margin-bottom:8px}
 .cmp thead th.old .tag{color:var(--ink-2)}
